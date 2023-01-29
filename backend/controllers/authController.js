@@ -16,7 +16,7 @@ export const registerUser = async (req, res) => {
     if (error.errors.login.name === "ValidatorError") {
       res.status(400).send("Username already taken");
     } else {
-      res.status(405).send(error);
+      res.status(500).send(error);
     }
   }
 };
@@ -39,6 +39,6 @@ export const loginUser = async (req, res) => {
     res.cookie("token", token);
     return res.status(200).send("Login succeed");
   } catch (error) {
-    res.status(405).send(error);
+    res.status(500).send(error);
   }
 };
