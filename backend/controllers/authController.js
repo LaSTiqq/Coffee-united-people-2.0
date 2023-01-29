@@ -1,4 +1,5 @@
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 import userModel from "../models/userModel.js";
 
 export const registerUser = async (req, res) => {
@@ -34,7 +35,8 @@ export const loginUser = async (req, res) => {
     if (!correctPassword) {
       return res.status(404).send("Wrong login or password");
     }
-
+    const token = jwt.sign({ user }, process.env.SECRET_KEY);
+    res.cookie("token", token);
     return res.status(200).send("Login succeed");
   } catch (error) {
     res.status(405).send(error);
