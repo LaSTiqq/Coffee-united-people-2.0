@@ -27,3 +27,11 @@
 <sub>These are currently used packages. You can find actual list of them in package.json file both on backend and frontend (in future) folders</sub>
 ## Prerequsites
 ##### In this project are implemented dotenv package so the sensitive information such as ```MONGO_URL``` for connection to database and ```SECRET_KEY``` for JWT Token are hidden in environment file and aren't uploaded to this repository. Make sure to provide them if you are going to use this codebase. As well as node_modules folder is ignored.
+## Inspired by
+* [Accenture Bootcamp](https://bootcamp.lv/)
+* [ChatGPT](https://chat.openai.com/chat)
+## Find and contact me
+* [LinkedIn](https://www.linkedin.com/in/lauris-stirna-ab4898254/)
+* [My portfolio website](https://laurisstirna.eu.pythonanywhere.com/)
+
+<sub>I am currently looking for a job opportunities :)</sub>
