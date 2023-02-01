@@ -1,6 +1,6 @@
 # Coffee united people 2.0
 
-> This is expected to be more complex and advanced version of what I did before
+> This is expected to be more complex and advanced version of what I did before [here](https://github.com/LaSTiqq/coffee-united-people)
 
 ## What are done currently
 
