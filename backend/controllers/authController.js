@@ -35,10 +35,14 @@ export const loginUser = async (req, res) => {
     if (!correctPassword) {
       return res.status(404).send("Wrong login or password");
     }
-    const token = jwt.sign({ user }, process.env.SECRET_KEY, {
-      expiresIn: "30m",
+
+    const token = jwt.sign({ user }, process.env.SECRET_KEY);
+    res.cookie("token", token, {
+      maxAge: 3600 * 1000,
+      httpOnly: true,
+      sameSite: "strict",
+      secure: true,
     });
-    res.cookie("token", token);
     return res.status(200).send("Login succeed");
   } catch (error) {
     res.status(500).send(error);

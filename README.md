@@ -5,16 +5,19 @@
 ## What are done currently
 
 - Reviewed all returning HTTP status codes according to [HTTP Cats](https://http.cat/)
-- Added preventing registering with an existing login (username)
-- Added jsonwebtoken (JWT) with expiration time and temporary middleware to verify it
+- Added preventing registering with an existing login (username) on backend side
+- Added additional try-catch returning messages on frontend side
+- Added jsonwebtoken (JWT) with expiration time and other security flags
 - Added basic frontend part on React.js with [Bootstrap](https://getbootstrap.com/) CDN and deletion of all testing packages
 - Added ContextHook hook to protect routes only accesible for authorized users
+- Added propper CORS configuration to retrieve JWT Token as a cookie from backend to frontend
 
 ## What are expected further
 
+- Get rid of unnecessary controllers and middlewares which were used for testing on backend side
+- Add feature to keep user logged in even if page is refreshed
+- Replace default JavaScript alert messages with Bootstrap alerts
 - Continue improving and styling frontend side
-- Get rid of unnecessary controllers and middlewares which were used for testing at Express.js
-- Retrieve JWT Token from backend and verify it at frontend while user is authorized
 - Implement fully working all-to-all chat based on [Socket.io](https://socket.io/)
 - and more..
 
@@ -51,7 +54,6 @@
 
 ## Find and contact me
 
-- [LinkedIn](https://www.linkedin.com/in/lauris-stirna-ab4898254/)
-- [My portfolio website](https://laurisstirna.eu.pythonanywhere.com/)
+- [My personal website](https://laurisstirna.eu.pythonanywhere.com/)
 
 <sub>I'm currently looking for a job opportunities :)</sub>

@@ -4,6 +4,7 @@ import axios from "axios";
 
 const RegisterForm = () => {
   const navigate = useNavigate();
+
   const [registerData, setRegisterData] = useState({
     login: "",
     password: "",
@@ -15,8 +16,8 @@ const RegisterForm = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     try {
       const request = await axios.post(
         "http://localhost:3001/register",
@@ -25,32 +26,35 @@ const RegisterForm = () => {
       if (request) {
         alert("Register succeed, sign in now");
         navigate("/login");
+      } else {
+        alert("Username already taken, press OK to try again");
       }
     } catch (error) {
-      alert("Username already taken, press OK to try again");
+      alert("An error occurred while registering, please try again later");
     }
   };
+
   return (
     <div className="container-fluid">
-      <div className="row">
-        <div className="col-md-6 text-center">
-          <h1 className="mt-2 mb-4 text-center">Registering Form</h1>
+      <div className="row justify-content-center">
+        <div className="col-md-4">
+          <h1 className="text-center mt-2 mb-4">Registering Form</h1>
           <form onSubmit={handleSubmit}>
             <input
-              type="text"
-              name="login"
               className="form-control mb-2"
-              required
               onChange={handleLoginInput}
               placeholder="Login"
+              type="text"
+              name="login"
+              required
             />
             <input
-              type="password"
-              name="password"
               className="form-control"
-              required
               onChange={handleLoginInput}
+              name="password"
+              type="password"
               placeholder="Password"
+              required
             />
             <button type="submit" className="btn btn-dark mt-2">
               Register
