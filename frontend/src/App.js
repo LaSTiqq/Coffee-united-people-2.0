@@ -13,7 +13,7 @@ function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/protected" element={<ProtectedPage />} />
+          <Route path="/p/protected" element={<ProtectedPage />} />
         </Routes>
       </Router>
     </LoggedInContextProvider>

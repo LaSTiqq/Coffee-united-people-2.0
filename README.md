@@ -5,22 +5,23 @@
 ## What are done currently
 
 - Reviewed all returning HTTP status codes according to [HTTP Cats](https://http.cat/)
-- Added preventing registering with an existing login (username) on backend side
+- Modified all backend routes and controllers to be more readable on backend side
 - Added additional try-catch returning messages on frontend side
+- Added preventing registering with an existing login (username) on backend side
 - Added jsonwebtoken (JWT) with expiration time
 - Added basic frontend part on React.js with [Bootstrap](https://getbootstrap.com/) CDN and deletion of all testing packages
 - Added ContextHook hook to protect routes only accesible for authorized users
 - Added propper CORS configuration to retrieve JWT Token as a cookie from backend to frontend
 - Added feature to keep user logged in even if page is refreshed
-- Added logout route on backend side with deleting token if user is logged out
+- Added logout route on backend side with deletion of token if user logs out, both on backend and frontend side
+- Added token verification while user is on protected pages (currently just one page), both on backend side and frontend side
 
 ## What are expected further
 
-- Get rid of unnecessary controller which was used for API testing using [Insomnia](https://insomnia.rest/)
-- Move token verify middleware on backend side to all protected routes defined on frontend side dynamically
-- Replace default JavaScript alert messages with Bootstrap alerts
 - Continue improving and styling frontend side
-- Implement fully working all-to-all chat based on [Socket.io](https://socket.io/)
+- Replace default JavaScript alert messages with Bootstrap alerts
+- Explore and implement fully working all-to-all chat based on [Socket.io](https://socket.io/)
+- Explore and implement [MUI](https://mui.com/) instead of Bootstrap (maybe)
 - and more..
 
 ## Technologies used
@@ -42,8 +43,9 @@
 
   - axios
   - react-router-dom
+  - js-cookie
 
-<sub>These are currently used packages. You can find actual list of them in package.json file both on backend and frontend folders</sub>
+<sub>You can find actual list of packages in package.json file both on backend and frontend folders</sub>
 
 ## Prerequsites
 

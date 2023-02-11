@@ -1,34 +1,38 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
 import { LoggedInContext } from "../../utils/ContextHook";
+import setAuthHeader from "../../utils/TokenVerify";
+import Cookies from "js-cookie";
 import axios from "axios";
 
 const LoginForm = () => {
   const navigate = useNavigate();
+  const LoginContext = useContext(LoggedInContext);
 
   const [loginData, setLoginData] = useState({
     login: "",
     password: "",
   });
 
-  const LoginContext = useContext(LoggedInContext);
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       const request = await axios.post(
-        "http://localhost:3001/login",
+        "http://localhost:3001/api/auth/login",
         loginData,
         { withCredentials: true }
       );
       if (request) {
         LoginContext.setLoggedInStatus(true);
+        const token = Cookies.get("token");
+        setAuthHeader(token);
         alert("Login succeed, press OK to continue");
-        navigate("/protected");
+        navigate("/p/protected");
       } else {
         alert("Wrong login or password, press OK to try again");
       }
     } catch (error) {
+      console.error(error);
       alert("An error occurred, press OK to try again");
     }
   };

@@ -20,7 +20,7 @@ const RegisterForm = () => {
     event.preventDefault();
     try {
       const request = await axios.post(
-        "http://localhost:3001/register",
+        "http://localhost:3001/api/register",
         registerData
       );
       if (request) {
@@ -30,6 +30,7 @@ const RegisterForm = () => {
         alert("Username already taken, press OK to try again");
       }
     } catch (error) {
+      console.error(error);
       alert("An error occurred while registering, please try again later");
     }
   };
