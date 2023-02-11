@@ -7,15 +7,17 @@
 - Reviewed all returning HTTP status codes according to [HTTP Cats](https://http.cat/)
 - Added preventing registering with an existing login (username) on backend side
 - Added additional try-catch returning messages on frontend side
-- Added jsonwebtoken (JWT) with expiration time and other security flags
+- Added jsonwebtoken (JWT) with expiration time
 - Added basic frontend part on React.js with [Bootstrap](https://getbootstrap.com/) CDN and deletion of all testing packages
 - Added ContextHook hook to protect routes only accesible for authorized users
 - Added propper CORS configuration to retrieve JWT Token as a cookie from backend to frontend
+- Added feature to keep user logged in even if page is refreshed
+- Added logout route on backend side with deleting token if user is logged out
 
 ## What are expected further
 
-- Get rid of unnecessary controllers and middlewares which were used for testing on backend side
-- Add feature to keep user logged in even if page is refreshed
+- Get rid of unnecessary controller which was used for API testing using [Insomnia](https://insomnia.rest/)
+- Move token verify middleware on backend side to all protected routes defined on frontend side dynamically
 - Replace default JavaScript alert messages with Bootstrap alerts
 - Continue improving and styling frontend side
 - Implement fully working all-to-all chat based on [Socket.io](https://socket.io/)
