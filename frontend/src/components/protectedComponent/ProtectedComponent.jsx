@@ -4,6 +4,7 @@ import { LoggedInContext } from "../../utils/ContextHook";
 import Cookies from "js-cookie";
 import setAuthHeader from "../../utils/TokenVerify";
 import axios from "axios";
+import "./protectedComponent.css";
 
 const ProtectedComponent = () => {
   const navigate = useNavigate();
@@ -25,20 +26,24 @@ const ProtectedComponent = () => {
 
   useEffect(() => {
     if (!LoginContext.isLoggedIn || !token) {
-      navigate("/");
+      navigate("/login");
     }
     return () => {};
   }, [LoginContext.isLoggedIn, token, navigate]);
 
   return (
     <div className="container-fluid">
-      <h1 className="text-center">This is protected component</h1>
-      <button
-        className="btn btn-dark d-block mx-auto mt-2"
-        onClick={handleLogout}
-      >
-        Log out
-      </button>
+      <div className="row content">
+        <div className="col-12">
+          <h2 className="text-center">This is protected component</h2>
+          <button
+            className="btn btn-dark d-block mx-auto mt-2"
+            onClick={handleLogout}
+          >
+            Log out
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

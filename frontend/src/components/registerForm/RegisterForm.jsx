@@ -37,7 +37,7 @@ const RegisterForm = () => {
 
   return (
     <div className="container-fluid">
-      <div className="row justify-content-center">
+      <div className="row justify-content-center background">
         <div className="col-md-4">
           <h1 className="text-center mt-2 mb-4">Registering Form</h1>
           <form onSubmit={handleSubmit}>
@@ -57,7 +57,10 @@ const RegisterForm = () => {
               placeholder="Password"
               required
             />
-            <button type="submit" className="btn btn-dark mt-2">
+            <button
+              type="submit"
+              className="btn btn-warning d-block mx-auto fw-bold mt-2"
+            >
               Register
             </button>
           </form>

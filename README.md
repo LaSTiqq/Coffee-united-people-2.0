@@ -15,6 +15,7 @@
 - Added feature to keep user logged in even if page is refreshed
 - Added logout route on backend side with deletion of token if user logs out, both on backend and frontend side
 - Added token verification while user is on protected pages (currently just one page), both on backend side and frontend side
+- Added styling for welcome, register and login pages. Made some preparations to create protected pages
 
 ## What are expected further
 

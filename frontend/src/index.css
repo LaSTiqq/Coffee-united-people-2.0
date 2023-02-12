@@ -3,3 +3,11 @@
 body {
   font-family: "Raleway", sans-serif;
 }
+
+a {
+  text-decoration: none;
+}
+
+.background {
+  height: calc(100vh - 84px);
+}

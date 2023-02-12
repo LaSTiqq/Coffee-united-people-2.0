@@ -1,0 +1,12 @@
+nav {
+  background-color: rgba(51, 28, 22, 0.9);
+}
+
+.navbar-brand {
+  margin-right: 0;
+}
+
+.navbar-brand img {
+  width: 64px;
+  height: 64px;
+}

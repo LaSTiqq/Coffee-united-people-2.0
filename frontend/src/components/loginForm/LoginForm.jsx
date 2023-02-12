@@ -45,7 +45,7 @@ const LoginForm = () => {
 
   return (
     <div className="container-fluid">
-      <div className="row justify-content-center">
+      <div className="row justify-content-center background">
         <div className="col-md-4">
           <h1 className="text-center mt-2 mb-4">Signing in Form</h1>
           <form onSubmit={handleSubmit}>
@@ -65,7 +65,10 @@ const LoginForm = () => {
               placeholder="Password"
               required
             />
-            <button className="btn btn-dark mt-2" type="submit">
+            <button
+              className="btn btn-warning d-block mx-auto fw-bold mt-2"
+              type="submit"
+            >
               Sign in
             </button>
           </form>

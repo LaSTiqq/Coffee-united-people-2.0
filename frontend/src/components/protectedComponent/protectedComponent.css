@@ -1,0 +1,6 @@
+.content {
+  height: calc(100vh - 84px);
+  background-color: #bc8f8f;
+  flex-direction: column;
+  padding-top: 120px;
+}
