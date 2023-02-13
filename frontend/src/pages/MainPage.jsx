@@ -1,12 +1,12 @@
 import Header from "../components/header/Header";
-import MainContent from "../components/mainContent/MainContent";
+import Main from "../components/main/Main";
 import Footer from "../components/footer/Footer";
 
 const MainPage = () => {
   return (
     <>
       <Header buttonHome={""} />
-      <MainContent buttonRegister={"register"} buttonLogin={"login"} />
+      <Main buttonRegister={"register"} buttonLogin={"login"} />
       <Footer />
     </>
   );

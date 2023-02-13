@@ -2,11 +2,20 @@ nav {
   background-color: rgba(51, 28, 22, 0.9);
 }
 
+nav a {
+  cursor: pointer;
+}
+
+nav h5 {
+  margin-top: 5px;
+}
+
 .navbar-brand {
   margin-right: 0;
+  padding: 0;
 }
 
 .navbar-brand img {
-  width: 64px;
-  height: 64px;
+  width: 50px;
+  height: 50px;
 }

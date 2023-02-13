@@ -1,11 +1,11 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useState, useContext } from "react";
 import { LoggedInContext } from "../../utils/ContextHook";
 import setAuthHeader from "../../utils/TokenVerify";
 import Cookies from "js-cookie";
 import axios from "axios";
 
-const LoginForm = () => {
+const LoginForm = ({ buttonRegister }) => {
   const navigate = useNavigate();
   const LoginContext = useContext(LoggedInContext);
 
@@ -23,11 +23,13 @@ const LoginForm = () => {
         { withCredentials: true }
       );
       if (request) {
-        LoginContext.setLoggedInStatus(true);
+        const requestData = JSON.parse(request.config.data);
+        const username = requestData.login;
+        LoginContext.setLoggedInStatus(true, username);
         const token = Cookies.get("token");
         setAuthHeader(token);
         alert("Login succeed, press OK to continue");
-        navigate("/p/protected");
+        navigate("/p/chat");
       } else {
         alert("Wrong login or password, press OK to try again");
       }
@@ -45,33 +47,40 @@ const LoginForm = () => {
 
   return (
     <div className="container-fluid">
-      <div className="row justify-content-center background">
-        <div className="col-md-4">
-          <h1 className="text-center mt-2 mb-4">Signing in Form</h1>
+      <div className="row justify-content-center bg-image">
+        <div className="col-md-4 square">
+          <i className="fa-solid fa-arrow-right-to-bracket fa-3x d-flex justify-content-center mt-3"></i>
+          <h2 className="text-center fw-bold">Sign in</h2>
           <form onSubmit={handleSubmit}>
+            <input
+              className="form-control my-2"
+              onChange={handleLoginInput}
+              placeholder="Username"
+              type="text"
+              name="login"
+              required
+            />
             <input
               className="form-control mb-2"
               onChange={handleLoginInput}
-              type="text"
-              name="login"
-              placeholder="Login"
-              required
-            />
-            <input
-              className="form-control"
-              onChange={handleLoginInput}
+              placeholder="Password"
               type="password"
               name="password"
-              placeholder="Password"
               required
             />
             <button
-              className="btn btn-warning d-block mx-auto fw-bold mt-2"
+              className="btn btn-warning d-block mx-auto fw-bold my-2"
               type="submit"
             >
-              Sign in
+              SIGN IN
             </button>
           </form>
+          <p className="text-center text-dark fw-bold">
+            Don't have an account?&nbsp;
+            <Link to={`/${buttonRegister}`} className="link-primary fw-bold">
+              Register
+            </Link>
+          </p>
         </div>
       </div>
     </div>

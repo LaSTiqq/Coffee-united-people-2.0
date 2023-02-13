@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import "./mainContent.css";
+import "./main.css";
 
-const MainContent = ({ buttonRegister, buttonLogin }) => {
+const Main = ({ buttonRegister, buttonLogin }) => {
   return (
     <div className="container-fluid">
-      <div className="row background">
+      <div className="row bg-image">
         <div className="col-12">
           <h1 className="text-center fw-bold">The CUP Social Media App</h1>
           <h2 className="text-center fw-bold">
@@ -30,4 +30,4 @@ const MainContent = ({ buttonRegister, buttonLogin }) => {
   );
 };
 
-export default MainContent;
+export default Main;
