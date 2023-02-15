@@ -9,26 +9,22 @@
 - Added additional try-catch returning messages on frontend side
 - Added preventing registering with an existing login (username) on backend side
 - Added jsonwebtoken (JWT) with expiration time
-- Added basic frontend part on React.js with [Bootstrap](https://getbootstrap.com/) CDN and deletion of all testing packages
+- Added frontend part on React.js with [Bootstrap](https://getbootstrap.com/) CDN
 - Added ContextHook hook to protect routes only accesible for authorized users
 - Added propper CORS configuration to retrieve JWT Token as a cookie from backend to frontend
-- Added feature to keep user logged in even if page is refreshed
+- Added feature to keep user logged in, even if page is being reloaded
 - Added logout route on backend side with deletion of token if user logs out, both on backend and frontend side
 - Added token verification while user is on protected pages (currently just one page), both on backend side and frontend side
-- Added styling for welcome, register, and login pages
 - Moved logout component to the navigation bar so it's functionality could be used in every protected page
 - Added welcome message to logged in users with their username in navigation bar
 - Added vice-versa feature for logged in users so they can't go back to login, register, and main pages
-- Added partially working all-to-all chat based on [Socket.io](https://socket.io/)
-
-  <sub>Messages aren't stored in database so they're all deleted after server restart - it's useless to implement in PET project</sub>
+- Added partially working (messages aren't stored in database so they're all deleted after server restart - it's useless to implement in PET project) all-to-all chat based on [Socket.io](https://socket.io/)
 
 ## What are expected further
 
-- Continue improving and styling frontend side
 - Replace default JavaScript alert messages with Bootstrap alerts
 - Expand user model to more detailed profile (e-mail, avatar etc.)
-- Add accordingly deletion and editing functionalities to existing users
+- Add accordingly deletion and editing functionalities to an existing users
 - Add verification for password complexity requirements
 - Explore and implement [MUI](https://mui.com/) instead of Bootstrap (maybe)
 - and more..
@@ -56,7 +52,7 @@
   - js-cookie
   - socket.io-client
 
-<sub>You can find actual list of packages in package.json file both on backend and frontend folders</sub>
+<sub>Actual list of packages can be found in package.json file both on backend and frontend folders</sub>
 
 ## Prerequsites
 
