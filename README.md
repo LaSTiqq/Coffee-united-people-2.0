@@ -17,13 +17,19 @@
 - Added token verification while user is on protected pages (currently just one page), both on backend side and frontend side
 - Added styling for welcome, register, and login pages
 - Moved logout component to the navigation bar so it's functionality could be used in every protected page
-- Added welcome message to logged in users with their username, also in navigation bar
+- Added welcome message to logged in users with their username in navigation bar
+- Added vice-versa feature for logged in users so they can't go back to login, register, and main pages
+- Added partially working all-to-all chat based on [Socket.io](https://socket.io/)
+
+  <sub>Messages aren't stored in database so they're all deleted after server restart - it's useless to implement in PET project</sub>
 
 ## What are expected further
 
 - Continue improving and styling frontend side
 - Replace default JavaScript alert messages with Bootstrap alerts
-- Explore and implement fully working all-to-all chat based on [Socket.io](https://socket.io/)
+- Expand user model to more detailed profile (e-mail, avatar etc.)
+- Add accordingly deletion and editing functionalities to existing users
+- Add verification for password complexity requirements
 - Explore and implement [MUI](https://mui.com/) instead of Bootstrap (maybe)
 - and more..
 
@@ -41,12 +47,14 @@
   - mongoose
   - mongoose-unique-validator
   - nodemon
+  - socket.io
 
 - [React.js](https://reactjs.org/) for frontend
 
   - axios
   - react-router-dom
   - js-cookie
+  - socket.io-client
 
 <sub>You can find actual list of packages in package.json file both on backend and frontend folders</sub>
 

@@ -1,10 +1,18 @@
+import { useState, useEffect, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { useState } from "react";
 import axios from "axios";
+import { LoggedInContext } from "../../utils/ContextHook";
 import "./registerForm.css";
 
 const RegisterForm = ({ buttonLogin }) => {
   const navigate = useNavigate();
+  const { isLoggedIn } = useContext(LoggedInContext);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate("/p/chat");
+    }
+  }, [isLoggedIn, navigate]);
 
   const [registerData, setRegisterData] = useState({
     login: "",

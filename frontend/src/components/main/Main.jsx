@@ -1,7 +1,18 @@
-import { Link } from "react-router-dom";
+import { useEffect, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { LoggedInContext } from "../../utils/ContextHook";
 import "./main.css";
 
 const Main = ({ buttonRegister, buttonLogin }) => {
+  const navigate = useNavigate();
+  const { isLoggedIn } = useContext(LoggedInContext);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate("/p/chat");
+    }
+  }, [isLoggedIn, navigate]);
+
   return (
     <div className="container-fluid">
       <div className="row bg-image">

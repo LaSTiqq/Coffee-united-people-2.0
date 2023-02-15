@@ -1,5 +1,5 @@
 import { useNavigate, Link } from "react-router-dom";
-import { useState, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { LoggedInContext } from "../../utils/ContextHook";
 import setAuthHeader from "../../utils/TokenVerify";
 import Cookies from "js-cookie";
@@ -13,6 +13,18 @@ const LoginForm = ({ buttonRegister }) => {
     login: "",
     password: "",
   });
+
+  useEffect(() => {
+    if (LoginContext.isLoggedIn) {
+      navigate("/p/chat");
+    }
+  }, [LoginContext.isLoggedIn, navigate]);
+
+  const handleLoginInput = (e) => {
+    setLoginData((prev) => {
+      return { ...prev, [e.target.name]: e.target.value };
+    });
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -37,12 +49,6 @@ const LoginForm = ({ buttonRegister }) => {
       console.error(error);
       alert("An error occurred, press OK to try again");
     }
-  };
-
-  const handleLoginInput = (e) => {
-    setLoginData((prev) => {
-      return { ...prev, [e.target.name]: e.target.value };
-    });
   };
 
   return (

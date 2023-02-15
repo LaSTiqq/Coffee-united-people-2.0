@@ -1,4 +1,6 @@
+import { createServer } from "http";
 import cookieParser from "cookie-parser";
+import { Server } from "socket.io";
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
@@ -19,4 +21,25 @@ app.use("/api/register", registerRoute);
 app.use("/api/auth", authRoute);
 app.use("/p", protectedRoute);
 
-app.listen(3001, () => connectionToDb());
+const server = createServer(app);
+
+const io = new Server(server, {
+  path: "/p/chat",
+  cors: {
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"],
+  },
+});
+
+const messages = [];
+
+io.on("connection", (socket) => {
+  socket.emit("receivedMessage", messages);
+  socket.on("sendMessage", ({ message, name }) => {
+    messages.push({ message, name });
+    io.emit("receivedMessage", messages);
+  });
+  socket.on("disconnect", () => {});
+});
+
+server.listen(3001, () => connectionToDb());
