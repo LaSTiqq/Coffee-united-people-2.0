@@ -1,24 +1,22 @@
+import { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { useState, useEffect, useContext } from "react";
-import { LoggedInContext } from "../../utils/ContextHook";
-import setAuthHeader from "../../utils/TokenVerify";
+import { Alert } from "react-bootstrap";
 import Cookies from "js-cookie";
 import axios from "axios";
+import { LoggedInContext } from "../../utils/ContextHook";
+import setAuthHeader from "../../utils/TokenVerify";
 
 const LoginForm = ({ buttonRegister }) => {
   const navigate = useNavigate();
   const LoginContext = useContext(LoggedInContext);
 
+  const [alertMessage, setAlertMessage] = useState(null);
+  const [showAlert, setShowAlert] = useState(false);
+
   const [loginData, setLoginData] = useState({
     login: "",
     password: "",
   });
-
-  useEffect(() => {
-    if (LoginContext.isLoggedIn) {
-      navigate("/p/chat");
-    }
-  }, [LoginContext.isLoggedIn, navigate]);
 
   const handleLoginInput = (e) => {
     setLoginData((prev) => {
@@ -40,14 +38,20 @@ const LoginForm = ({ buttonRegister }) => {
         LoginContext.setLoggedInStatus(true, username);
         const token = Cookies.get("token");
         setAuthHeader(token);
-        alert("Login succeed, press OK to continue");
-        navigate("/p/chat");
-      } else {
-        alert("Wrong login or password, press OK to try again");
+        setAlertMessage("Login succeed, navigating...");
+        setShowAlert(true);
+        setTimeout(() => {
+          navigate("/p/chat");
+        }, 2000);
       }
     } catch (error) {
-      console.error(error);
-      alert("An error occurred, press OK to try again");
+      if (error.request.status === 404) {
+        setAlertMessage("Wrong login or password, please try again");
+        setShowAlert(true);
+      } else {
+        setAlertMessage("An error occurred, please try again");
+        setShowAlert(true);
+      }
     }
   };
 
@@ -55,8 +59,18 @@ const LoginForm = ({ buttonRegister }) => {
     <div className="container-fluid">
       <div className="row justify-content-center bg-image">
         <div className="col-md-4 square">
-          <i className="fa-solid fa-arrow-right-to-bracket fa-3x d-flex justify-content-center mt-3"></i>
+          <i className="fa-solid fa-key fa-3x d-flex justify-content-center mt-3"></i>
           <h2 className="text-center fw-bold">Sign in</h2>
+          {showAlert && (
+            <Alert
+              className="fw-bold"
+              variant={alertMessage.includes("please") ? "danger" : "success"}
+              onClose={() => setShowAlert(false)}
+              dismissible
+            >
+              {alertMessage}
+            </Alert>
+          )}
           <form onSubmit={handleSubmit}>
             <input
               className="form-control my-2"

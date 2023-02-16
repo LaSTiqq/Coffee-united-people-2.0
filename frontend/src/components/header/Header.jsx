@@ -1,5 +1,5 @@
-import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import logo from "../../assets/logo.png";
 import { LoggedInContext } from "../../utils/ContextHook";
@@ -34,14 +34,19 @@ const Header = ({ buttonHome }) => {
             <img src={logo} alt="Logo"></img>
             Coffee United People
           </Link>
-          {login ? (
+          {LoginContext.isLoggedIn ? (
             <>
-              <h5 className="text-white ms-auto">
+              <h6 className="text-white ms-auto">
                 Welcome, <span className="text-info">{login}</span>
-              </h5>
+              </h6>
+              <span className="text-white fw-bold mx-3">|</span>
+              <Link to="/p/chat" className="link-warning">
+                <i class="fa-solid fa-rotate-left"></i>&nbsp; Get back
+              </Link>
               <span className="text-white fw-bold mx-3">|</span>
               <a className="link-warning" onClick={handleLogout}>
-                Log out?
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                &nbsp; Log out
               </a>
             </>
           ) : null}

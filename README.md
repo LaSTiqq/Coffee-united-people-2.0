@@ -17,12 +17,14 @@
 - Added token verification while user is on protected pages (currently just one page), both on backend side and frontend side
 - Moved logout component to the navigation bar so it's functionality could be used in every protected page
 - Added welcome message to logged in users with their username in navigation bar
-- Added vice-versa feature for logged in users so they can't go back to login, register, and main pages
-- Added partially working (messages aren't stored in database so they're all deleted after server restart - it's useless to implement in PET project) all-to-all chat based on [Socket.io](https://socket.io/)
+- Added all-to-all chat based on [Socket.io](https://socket.io/) without storing messages in database
+- Added button to logged in users in navigation bar to get back to the protected page if user suddenly clicked go back button in browser
+- Fixed some incorrect alert messages according to what user did wrong exactly
+- Added Bootstrap alerts instead of default JavaScript alerts
 
 ## What are expected further
 
-- Replace default JavaScript alert messages with Bootstrap alerts
+- Add session id to prevent logging in with the same credentials more than once
 - Expand user model to more detailed profile (e-mail, avatar etc.)
 - Add accordingly deletion and editing functionalities to an existing users
 - Add verification for password complexity requirements
@@ -51,6 +53,7 @@
   - react-router-dom
   - js-cookie
   - socket.io-client
+  - react-bootstrap
 
 <sub>Actual list of packages can be found in package.json file both on backend and frontend folders</sub>
 
