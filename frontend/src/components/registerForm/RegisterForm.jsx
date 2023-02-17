@@ -29,7 +29,7 @@ const RegisterForm = ({ buttonLogin }) => {
         registerData
       );
       if (request) {
-        setAlertMessage("Register succeed, navigating...");
+        setAlertMessage("Register succeed, redirecting...");
         setShowAlert(true);
         setTimeout(() => {
           navigate("/login");

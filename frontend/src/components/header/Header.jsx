@@ -41,11 +41,11 @@ const Header = ({ buttonHome }) => {
               </h6>
               <span className="text-white fw-bold mx-3">|</span>
               <Link to="/p/chat" className="link-warning">
-                <i class="fa-solid fa-rotate-left"></i>&nbsp; Get back
+                <i className="fa-solid fa-rotate-left"></i>&nbsp; Get back
               </Link>
               <span className="text-white fw-bold mx-3">|</span>
               <a className="link-warning" onClick={handleLogout}>
-                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <i className="fa-solid fa-arrow-right-from-bracket"></i>
                 &nbsp; Log out
               </a>
             </>

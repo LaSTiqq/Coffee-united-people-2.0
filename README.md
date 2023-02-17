@@ -24,6 +24,7 @@
 
 ## What are expected further
 
+- Discovered that expected to be protected routes won't work starting with /p/. Fix incoming
 - Add session id to prevent logging in with the same credentials more than once
 - Expand user model to more detailed profile (e-mail, avatar etc.)
 - Add accordingly deletion and editing functionalities to an existing users

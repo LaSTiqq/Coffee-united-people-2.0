@@ -77,7 +77,7 @@ const Chat = () => {
             required
           />
           <button type="submit" className="btn btn-warning">
-            Send&nbsp;<i class="fa-regular fa-paper-plane d-inline"></i>
+            Send&nbsp;<i className="fa-regular fa-paper-plane d-inline"></i>
           </button>
         </form>
       </div>

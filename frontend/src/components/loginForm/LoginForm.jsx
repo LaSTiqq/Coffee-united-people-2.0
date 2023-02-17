@@ -38,7 +38,7 @@ const LoginForm = ({ buttonRegister }) => {
         LoginContext.setLoggedInStatus(true, username);
         const token = Cookies.get("token");
         setAuthHeader(token);
-        setAlertMessage("Login succeed, navigating...");
+        setAlertMessage("Login succeed, redirecting...");
         setShowAlert(true);
         setTimeout(() => {
           navigate("/p/chat");

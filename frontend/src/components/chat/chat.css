@@ -1,5 +1,5 @@
 .bg-color {
-  height: calc(100vh - 74px);
+  height: 100vh;
   background-color: #ede0d4;
   padding-top: 80px;
 }
