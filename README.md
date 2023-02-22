@@ -20,11 +20,10 @@
 - Added all-to-all chat based on [Socket.io](https://socket.io/) without storing messages in database
 - Added button to logged in users in navigation bar to get back to the protected page if user suddenly clicked go back button in browser
 - Fixed some incorrect alert messages according to what user did wrong exactly
-- Added Bootstrap alerts instead of default JavaScript alerts
+- Added Bootstrap alerts instead of default JavaScript alerts at login and register
 
 ## What are expected further
 
-- Discovered that expected to be protected routes won't work starting with /p/. Fix incoming
 - Add session id to prevent logging in with the same credentials more than once
 - Expand user model to more detailed profile (e-mail, avatar etc.)
 - Add accordingly deletion and editing functionalities to an existing users

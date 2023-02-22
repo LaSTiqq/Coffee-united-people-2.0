@@ -1,5 +1,4 @@
 .bg-color {
-  height: 100vh;
   background-color: #ede0d4;
   padding-top: 80px;
 }
@@ -12,7 +11,7 @@
 }
 
 .chat ul {
-  height: 570px;
+  height: 655px;
   display: flex;
   flex-direction: column;
   list-style: none;

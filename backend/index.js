@@ -19,7 +19,7 @@ app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 
 app.use("/api/register", registerRoute);
 app.use("/api/auth", authRoute);
-app.use("/p", protectedRoute);
+app.use("/p/*", protectedRoute);
 
 const server = createServer(app);
 
