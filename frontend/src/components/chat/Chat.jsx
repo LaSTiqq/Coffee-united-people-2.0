@@ -1,13 +1,11 @@
 import { useState, useEffect, useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
-import Cookies from "js-cookie";
 import { LoggedInContext } from "../../utils/ContextHook";
 import "./chat.css";
 
 const Chat = () => {
   const navigate = useNavigate();
-  const token = Cookies.get("token");
   const messagesEndRef = useRef(null);
   const { login, isLoggedIn } = useContext(LoggedInContext);
 
@@ -31,10 +29,10 @@ const Chat = () => {
   }, [messages]);
 
   useEffect(() => {
-    if (!isLoggedIn || !token) {
+    if (!isLoggedIn) {
       navigate("/login");
     }
-  }, [isLoggedIn, token, navigate]);
+  }, [isLoggedIn, navigate]);
 
   const handleSubmit = (event) => {
     event.preventDefault();

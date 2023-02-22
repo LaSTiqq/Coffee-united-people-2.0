@@ -1,5 +1,5 @@
-import { createServer } from "http";
 import cookieParser from "cookie-parser";
+import { createServer } from "http";
 import { Server } from "socket.io";
 import express from "express";
 import dotenv from "dotenv";
@@ -17,7 +17,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 
-app.use("/api/register", registerRoute);
+app.use("/api/", registerRoute);
 app.use("/api/auth", authRoute);
 app.use("/p/*", protectedRoute);
 

@@ -1,10 +1,8 @@
 import { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Alert } from "react-bootstrap";
-import Cookies from "js-cookie";
 import axios from "axios";
 import { LoggedInContext } from "../../utils/ContextHook";
-import setAuthHeader from "../../utils/TokenVerify";
 
 const LoginForm = ({ buttonRegister }) => {
   const navigate = useNavigate();
@@ -36,8 +34,6 @@ const LoginForm = ({ buttonRegister }) => {
         const requestData = JSON.parse(request.config.data);
         const username = requestData.login;
         LoginContext.setLoggedInStatus(true, username);
-        const token = Cookies.get("token");
-        setAuthHeader(token);
         setAlertMessage("Login succeed, redirecting...");
         setShowAlert(true);
         setTimeout(() => {

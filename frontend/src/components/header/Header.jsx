@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import logo from "../../assets/logo.png";
 import { LoggedInContext } from "../../utils/ContextHook";
-import setAuthHeader from "../../utils/TokenVerify";
 import "./header.css";
 
 const Header = ({ buttonHome }) => {
@@ -13,10 +12,10 @@ const Header = ({ buttonHome }) => {
 
   const handleLogout = async () => {
     try {
-      await axios.delete("http://localhost:3001/api/auth/logout");
+      await axios.post("http://localhost:3001/api/auth/logout"),
+        { withCredentials: true };
       document.cookie =
         "token=; expires=Saturday, January 10, 1970 at 00:00:00 AM; path=/;";
-      setAuthHeader(null);
       LoginContext.setLoggedInStatus(false, "");
       localStorage.removeItem("login");
       navigate("/");
