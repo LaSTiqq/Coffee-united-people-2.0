@@ -12,7 +12,7 @@ const Header = ({ buttonHome }) => {
 
   const handleLogout = async () => {
     try {
-      await axios.post("http://localhost:3001/api/auth/logout"),
+      await axios.delete("http://localhost:3001/api/auth/logout"),
         { withCredentials: true };
       document.cookie =
         "token=; expires=Saturday, January 10, 1970 at 00:00:00 AM; path=/;";
