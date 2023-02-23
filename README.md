@@ -25,7 +25,6 @@
 ## What are expected further
 
 - Discovered that server-side cookie clearing don't work as expected. Searching for fix..
-- Add session id to prevent logging in with the same credentials more than once
 - Expand user model to more detailed profile (e-mail, avatar etc.)
 - Add accordingly deletion and editing functionalities to an existing users
 - Add verification for password complexity requirements
@@ -47,8 +46,6 @@
   - mongoose-unique-validator
   - nodemon
   - socket.io
-  - express-session
-  - connect-mongodb-session
 
 - [React.js](https://reactjs.org/) for frontend
 
