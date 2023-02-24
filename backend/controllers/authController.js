@@ -29,6 +29,8 @@ export const loginUser = async (req, res) => {
 };
 
 export const logoutUser = (req, res) => {
-  res.clearCookie("token");
-  return res.status(200).send("Logout succeed");
+  return res
+    .clearCookie("token", { path: "/" })
+    .status(200)
+    .send("Logout succeed");
 };
