@@ -21,7 +21,7 @@
 - Added button to logged in users in navigation bar to get back to the protected page if user suddenly clicked go back button in browser
 - Fixed some incorrect alert messages according to what user did wrong exactly
 - Added Bootstrap alerts instead of default JavaScript alerts at login and register
-- Moved all client-side to Vite react app, returning back later is possible if some errors appears
+- Moved all client-side to [Vite](https://vitejs.dev/) react app, returning back later is possible if some errors appears
 
 ## What are expected further
 
