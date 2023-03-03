@@ -1,13 +1,16 @@
-import { useState, useEffect, useContext, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { io } from "socket.io-client";
-import { LoggedInContext } from "../../utils/ContextHook";
 import "./chat.css";
 
 const Chat = () => {
   const navigate = useNavigate();
+
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const username = useSelector((state) => state.auth.username);
+
   const messagesEndRef = useRef(null);
-  const { login, isLoggedIn } = useContext(LoggedInContext);
 
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState("");
@@ -39,7 +42,7 @@ const Chat = () => {
     const socket = io("http://localhost:3001", {
       path: "/p/chat",
     });
-    socket.emit("sendMessage", { message, name: login });
+    socket.emit("sendMessage", { message, name: username });
     setMessage("");
   };
 
@@ -52,7 +55,7 @@ const Chat = () => {
             <li
               key={index}
               className={`rounded ${
-                message.name === login ? "sent" : "received"
+                message.name === username ? "sent" : "received"
               }`}
             >
               <div>

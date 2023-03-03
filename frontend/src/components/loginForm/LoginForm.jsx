@@ -1,12 +1,13 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { login } from "../../store/authSlice";
 import { Alert } from "react-bootstrap";
 import axios from "axios";
-import { LoggedInContext } from "../../utils/ContextHook";
 
 const LoginForm = ({ buttonRegister }) => {
   const navigate = useNavigate();
-  const LoginContext = useContext(LoggedInContext);
+  const dispatch = useDispatch();
 
   const [alertMessage, setAlertMessage] = useState(null);
   const [showAlert, setShowAlert] = useState(false);
@@ -28,14 +29,10 @@ const LoginForm = ({ buttonRegister }) => {
       const request = await axios.post(
         "http://localhost:3001/api/auth/login",
         loginData,
-        {
-          withCredentials: true,
-        }
+        { withCredentials: true }
       );
       if (request) {
-        const requestData = JSON.parse(request.config.data);
-        const username = requestData.login;
-        LoginContext.setLoggedInStatus(true, username);
+        dispatch(login({ username: loginData.login }));
         setAlertMessage("Login succeed, redirecting...");
         setShowAlert(true);
         setTimeout(() => {

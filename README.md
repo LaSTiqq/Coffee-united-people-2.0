@@ -10,7 +10,7 @@
 - Added preventing registering with an existing login (username) on server-side
 - Added jsonwebtoken (JWT) with expiration time
 - Added client-side part on React.js with [Bootstrap](https://getbootstrap.com/) CDN
-- Added ContextHook hook to protect routes only accesible for authorized users
+- Added Context Hook hook to protect routes only accesible for authorized users
 - Added propper CORS configuration to retrieve JWT Token as a cookie from backend to frontend
 - Added feature to keep user logged in, even if page is being reloaded
 - Added logout route on server-side with deletion of token if user logs out
@@ -22,16 +22,16 @@
 - Fixed some incorrect alert messages according to what user did wrong exactly
 - Added Bootstrap alerts instead of default JavaScript alerts at login and register
 - Moved all client-side to [Vite](https://vitejs.dev/) react app, returning back later is possible if some errors appears
+- Implemented [Redux](https://react-redux.js.org/) instead of Context Hook to prevent accesing protected pages, stay logged in if page reloads
 
 ## What are expected further
 
-- Discovered that server-side cookie clearing don't work on client-side. Searching for fix..
-- Expand user model to more detailed profile (e-mail, avatar etc.)
+- Expand user model to more detailed profile (email, age etc.)
 - Add accordingly deletion and editing functionalities to an existing users
 - Add verification for password complexity requirements
-- Explore and implement [MUI](https://mui.com/) instead of Bootstrap (maybe)
-- Explore and implement [Redux](https://react-redux.js.org/) (maybe)
+- Refactor as much as possible both server-side and client-side code
 - Explore and implement [TypeScript](https://www.typescriptlang.org/) (maybe)
+- Explore and implement [MUI](https://mui.com/) instead of Bootstrap (maybe)
 - and more..
 
 ## Technologies used
@@ -52,10 +52,13 @@
 
 - [React.js](https://reactjs.org/) for frontend
 
-  - axios
   - react-router-dom
   - react-bootstrap
   - socket.io-client
+  - axios
+  - redux
+  - react-redux
+  - @reduxjs/toolkit
 
 <sub>Actual list of packages can be found in package.json file both on backend and frontend folders</sub>
 

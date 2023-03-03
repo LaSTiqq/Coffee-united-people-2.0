@@ -1,14 +1,16 @@
-import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../../store/authSlice";
 import axios from "axios";
 import logo from "../../assets/logo.png";
-import { LoggedInContext } from "../../utils/ContextHook";
 import "./header.css";
 
 const Header = ({ buttonHome }) => {
   const navigate = useNavigate();
-  const { login } = useContext(LoggedInContext);
-  const LoginContext = useContext(LoggedInContext);
+  const dispatch = useDispatch();
+
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const username = useSelector((state) => state.auth.username);
 
   const handleLogout = async () => {
     try {
@@ -16,8 +18,7 @@ const Header = ({ buttonHome }) => {
         { withCredentials: true };
       document.cookie =
         "token=; expires=Saturday, January 10, 1970 at 00:00:00 AM; path=/;";
-      LoginContext.setLoggedInStatus(false, "");
-      localStorage.removeItem("login");
+      dispatch(logout());
       navigate("/");
     } catch (error) {
       console.error(error);
@@ -33,10 +34,10 @@ const Header = ({ buttonHome }) => {
             <img src={logo} alt="Logo"></img>
             Coffee United People
           </Link>
-          {LoginContext.isLoggedIn ? (
+          {isLoggedIn && username ? (
             <>
               <h6 className="text-white ms-auto">
-                Welcome, <span className="text-info">{login}</span>
+                Welcome, <span className="text-info">{username}</span>
               </h6>
               <span className="text-white fw-bold mx-3">|</span>
               <Link to="/p/chat" className="link-warning">
