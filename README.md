@@ -23,13 +23,14 @@
 - Added Bootstrap alerts instead of default JavaScript alerts at login and register
 - Moved all client-side to [Vite](https://vitejs.dev/) react app, returning back later is possible if some errors appears
 - Implemented [Redux](https://react-redux.js.org/) instead of Context Hook to prevent accesing protected pages, stay logged in if page reloads
+- Added jsconfig.json and modified vite.config.js to resolve relative import paths
 
 ## What are expected further
 
+- Refactor as much as possible both server-side and client-side code
 - Expand user model to more detailed profile (email, age etc.)
 - Add accordingly deletion and editing functionalities to an existing users
 - Add verification for password complexity requirements
-- Refactor as much as possible both server-side and client-side code
 - Explore and implement [TypeScript](https://www.typescriptlang.org/) (maybe)
 - Explore and implement [MUI](https://mui.com/) instead of Bootstrap (maybe)
 - and more..

@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { login } from "../../store/authSlice";
 import { Alert } from "react-bootstrap";
 import axios from "axios";
+import { login } from "~/store/authSlice";
 
 const LoginForm = ({ buttonRegister }) => {
   const navigate = useNavigate();
