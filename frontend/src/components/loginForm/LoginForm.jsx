@@ -1,16 +1,13 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { Alert } from "react-bootstrap";
+import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import { login } from "~/store/authSlice";
 
 const LoginForm = ({ buttonRegister }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  const [alertMessage, setAlertMessage] = useState(null);
-  const [showAlert, setShowAlert] = useState(false);
 
   const [loginData, setLoginData] = useState({
     login: "",
@@ -32,20 +29,17 @@ const LoginForm = ({ buttonRegister }) => {
         { withCredentials: true }
       );
       if (request) {
+        toast.success("Login succeed! Redirecting...");
         dispatch(login({ username: loginData.login }));
-        setAlertMessage("Login succeed, redirecting...");
-        setShowAlert(true);
         setTimeout(() => {
           navigate("/p/chat");
         }, 2000);
       }
     } catch (error) {
       if (error.request.status === 404) {
-        setAlertMessage("Wrong login or password, please try again");
-        setShowAlert(true);
+        toast.error("Wrong login or password, try again");
       } else {
-        setAlertMessage("An error occurred, please try again");
-        setShowAlert(true);
+        toast.error("An error occurred, try again");
       }
     }
   };
@@ -56,16 +50,7 @@ const LoginForm = ({ buttonRegister }) => {
         <div className="col-md-4 square">
           <i className="fa-solid fa-key fa-3x d-flex justify-content-center mt-3"></i>
           <h2 className="text-center fw-bold">Sign in</h2>
-          {showAlert && (
-            <Alert
-              className="fw-bold"
-              variant={alertMessage.includes("please") ? "danger" : "success"}
-              onClose={() => setShowAlert(false)}
-              dismissible
-            >
-              {alertMessage}
-            </Alert>
-          )}
+          <Toaster />
           <form onSubmit={handleSubmit}>
             <input
               className="form-control my-2"

@@ -24,6 +24,7 @@
 - Moved all client-side to [Vite](https://vitejs.dev/) react app, returning back later is possible if some errors appears
 - Implemented [Redux](https://react-redux.js.org/) instead of Context Hook to prevent accesing protected pages, stay logged in if page reloads
 - Added jsconfig.json and modified vite.config.js to resolve relative import paths
+- Implemented [react-hot-toast](https://react-hot-toast.com/) package instead of boring Bootstrap alerts
 
 ## What are expected further
 
@@ -32,7 +33,7 @@
 - Add accordingly deletion and editing functionalities to an existing users
 - Add verification for password complexity requirements
 - Explore and implement [TypeScript](https://www.typescriptlang.org/) (maybe)
-- Explore and implement [MUI](https://mui.com/) instead of Bootstrap (maybe)
+- Explore and implement [MUI](https://mui.com/) (maybe)
 - and more..
 
 ## Technologies used
@@ -54,14 +55,12 @@
 - [React.js](https://reactjs.org/) for frontend
 
   - react-router-dom
-  - react-bootstrap
+  - react-hot-toast
   - socket.io-client
   - axios
   - redux
   - react-redux
   - @reduxjs/toolkit
-
-<sub>Actual list of packages can be found in package.json file both on backend and frontend folders</sub>
 
 ## Prerequsites
 
@@ -76,4 +75,4 @@
 
 - [My personal website](https://laurisstirna.eu.pythonanywhere.com/)
 
-<sub>I'm currently looking for a job opportunities :)</sub>
+<sub>I'm currently looking for a job opportunities</sub>

@@ -1,14 +1,11 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { Alert } from "react-bootstrap";
+import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import "./registerForm.css";
 
 const RegisterForm = ({ buttonLogin }) => {
   const navigate = useNavigate();
-
-  const [alertMessage, setAlertMessage] = useState(null);
-  const [showAlert, setShowAlert] = useState(false);
 
   const [registerData, setRegisterData] = useState({
     login: "",
@@ -29,21 +26,16 @@ const RegisterForm = ({ buttonLogin }) => {
         registerData
       );
       if (request) {
-        setAlertMessage("Register succeed, redirecting...");
-        setShowAlert(true);
+        toast.success("Register succeed! Redirecting...");
         setTimeout(() => {
           navigate("/login");
         }, 2000);
       }
     } catch (error) {
       if (error.request.status === 400) {
-        setAlertMessage("Username already taken, please try again");
-        setShowAlert(true);
+        toast.error("Username already taken, try again");
       } else {
-        setAlertMessage(
-          "An error occurred while registering, please try again"
-        );
-        setShowAlert(true);
+        toast.error("An error occurred, try again");
       }
     }
   };
@@ -54,16 +46,7 @@ const RegisterForm = ({ buttonLogin }) => {
         <div className="col-md-4 square">
           <i className="fa-solid fa-address-card fa-3x d-flex justify-content-center mt-3"></i>
           <h2 className="text-center fw-bold">Register</h2>
-          {showAlert && (
-            <Alert
-              className="fw-bold"
-              variant={alertMessage.includes("please") ? "danger" : "success"}
-              onClose={() => setShowAlert(false)}
-              dismissible
-            >
-              {alertMessage}
-            </Alert>
-          )}
+          <Toaster />
           <form onSubmit={handleSubmit}>
             <input
               className="form-control my-2"

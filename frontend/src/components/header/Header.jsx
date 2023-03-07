@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import logo from "~/assets/logo.png";
 import { logout } from "~/store/authSlice";
@@ -12,22 +13,26 @@ const Header = ({ buttonHome }) => {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const username = useSelector((state) => state.auth.username);
 
-  const handleLogout = async () => {
+  const handleLogout = async (event) => {
+    event.preventDefault();
     try {
       await axios.delete("http://localhost:3001/api/auth/logout"),
         { withCredentials: true };
+      toast.success("Logout succeed! Redirecting...");
       document.cookie =
         "token=; expires=Saturday, January 10, 1970 at 00:00:00 AM; path=/;";
-      dispatch(logout());
-      navigate("/");
+      setTimeout(() => {
+        dispatch(logout());
+        navigate("/");
+      }, 2000);
     } catch (error) {
-      console.error(error);
-      alert("An error occurred, press OK to try again");
+      toast.error("An error occurred, try again");
     }
   };
 
   return (
     <header>
+      <Toaster />
       <nav className="navbar fixed-top">
         <div className="container">
           <Link to={`/${buttonHome}`} className="navbar-brand text-white">
