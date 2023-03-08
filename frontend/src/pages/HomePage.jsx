@@ -1,15 +1,15 @@
 import Header from "~/components/header/Header";
-import Main from "~/components/main/Main";
+import Home from "~/components/home/Home";
 import Footer from "~/components/footer/Footer";
 
-const MainPage = () => {
+const HomePage = () => {
   return (
     <>
       <Header buttonHome={""} />
-      <Main buttonRegister={"register"} buttonLogin={"login"} />
+      <Home buttonRegister={"register"} buttonLogin={"login"} />
       <Footer />
     </>
   );
 };
 
-export default MainPage;
+export default HomePage;

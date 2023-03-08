@@ -3,12 +3,9 @@ import bcrypt from "bcrypt";
 
 const registerUser = async (req, res) => {
   try {
-    const salt = bcrypt.genSaltSync(10);
-    const hash = bcrypt.hashSync(req.body.password, salt);
-    const newUser = new userModel({
-      ...req.body,
-      password: hash,
-    });
+    const { login, password } = req.body;
+    const hash = await bcrypt.hash(password, 10);
+    const newUser = new userModel({ login, password: hash });
     await newUser.save();
     res.status(201).send("Register succeed");
   } catch (error) {

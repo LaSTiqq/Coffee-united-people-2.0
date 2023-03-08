@@ -4,20 +4,18 @@ import userModel from "../models/userModel.js";
 
 export const loginUser = async (req, res) => {
   try {
-    const user = await userModel.findOne({ login: req.body.login });
+    const { login, password } = req.body;
+    const user = await userModel.findOne({ login });
     if (!user) {
       return res.status(404).send("Wrong login or password");
     }
 
-    const correctPassword = await bcrypt.compare(
-      req.body.password,
-      user.password
-    );
-    if (!correctPassword) {
+    const validPassword = await bcrypt.compare(password, user.password);
+    if (!validPassword) {
       return res.status(404).send("Wrong login or password");
     }
 
-    const token = jwt.sign({ user }, process.env.SECRET_KEY);
+    const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY);
     res.cookie("token", token, {
       maxAge: 86400 * 1000,
       sameSite: "strict",

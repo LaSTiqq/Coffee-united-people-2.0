@@ -2,9 +2,8 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
-import "./registerForm.css";
 
-const RegisterForm = ({ buttonLogin }) => {
+const Register = ({ buttonLogin }) => {
   const navigate = useNavigate();
 
   const [registerData, setRegisterData] = useState({
@@ -21,18 +20,18 @@ const RegisterForm = ({ buttonLogin }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const request = await axios.post(
+      const response = await axios.post(
         "http://localhost:3001/api/register",
         registerData
       );
-      if (request) {
+      if (response) {
         toast.success("Register succeed! Redirecting...");
         setTimeout(() => {
           navigate("/login");
         }, 2000);
       }
     } catch (error) {
-      if (error.request.status === 400) {
+      if (error.response.status === 400) {
         toast.error("Username already taken, try again");
       } else {
         toast.error("An error occurred, try again");
@@ -83,4 +82,4 @@ const RegisterForm = ({ buttonLogin }) => {
   );
 };
 
-export default RegisterForm;
+export default Register;

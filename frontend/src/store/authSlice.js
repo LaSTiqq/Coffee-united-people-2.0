@@ -21,10 +21,6 @@ export const authSlice = createSlice({
       localStorage.setItem("isLoggedIn", "false");
       localStorage.removeItem("username");
     },
-    checkLoggedInStatus: (state) => {
-      state.isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-      state.username = localStorage.getItem("username") || "";
-    },
   },
 });
 

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import "./main.css";
+import "./home.css";
 
-const Main = ({ buttonRegister, buttonLogin }) => {
+const Home = ({ buttonRegister, buttonLogin }) => {
   return (
     <div className="container-fluid">
       <div className="row bg-image">
@@ -30,4 +30,4 @@ const Main = ({ buttonRegister, buttonLogin }) => {
   );
 };
 
-export default Main;
+export default Home;

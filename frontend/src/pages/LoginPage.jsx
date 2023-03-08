@@ -1,12 +1,12 @@
 import Header from "~/components/header/Header";
-import LoginForm from "~/components/loginForm/LoginForm";
+import Login from "~/components/login/Login";
 import Footer from "~/components/footer/Footer";
 
 const LoginPage = () => {
   return (
     <>
       <Header buttonHome={""} />
-      <LoginForm buttonRegister={"register"} />
+      <Login buttonRegister={"register"} />
       <Footer />
     </>
   );

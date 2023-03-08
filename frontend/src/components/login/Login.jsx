@@ -5,7 +5,7 @@ import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import { login } from "~/store/authSlice";
 
-const LoginForm = ({ buttonRegister }) => {
+const Login = ({ buttonRegister }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -23,12 +23,12 @@ const LoginForm = ({ buttonRegister }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const request = await axios.post(
+      const response = await axios.post(
         "http://localhost:3001/api/auth/login",
         loginData,
         { withCredentials: true }
       );
-      if (request) {
+      if (response) {
         toast.success("Login succeed! Redirecting...");
         dispatch(login({ username: loginData.login }));
         setTimeout(() => {
@@ -36,7 +36,7 @@ const LoginForm = ({ buttonRegister }) => {
         }, 2000);
       }
     } catch (error) {
-      if (error.request.status === 404) {
+      if (error.response.status === 404) {
         toast.error("Wrong login or password, try again");
       } else {
         toast.error("An error occurred, try again");
@@ -87,4 +87,4 @@ const LoginForm = ({ buttonRegister }) => {
   );
 };
 
-export default LoginForm;
+export default Login;
