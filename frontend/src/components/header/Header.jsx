@@ -36,12 +36,12 @@ const Header = ({ buttonHome }) => {
       <nav className="navbar fixed-top">
         <div className="container">
           <Link to={`/${buttonHome}`} className="navbar-brand text-white">
-            <img src={logo} alt="Logo"></img>
+            <img src={logo} alt="Logo" />
             Coffee United People
           </Link>
           {isLoggedIn && username ? (
             <>
-              <h6 className="text-white ms-auto">
+              <h6 className="text-white fw-bold ms-auto">
                 Welcome, <span className="text-info">{username}</span>
               </h6>
               <span className="text-white fw-bold mx-3">|</span>

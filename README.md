@@ -25,6 +25,7 @@
 - Implemented [Redux](https://react-redux.js.org/) instead of Context Hook to prevent accesing protected pages, stay logged in if page reloads
 - Added jsconfig.json and modified vite.config.js to resolve relative import paths
 - Implemented [react-hot-toast](https://react-hot-toast.com/) package instead of boring Bootstrap alerts
+- Added AuthButton component to use props and reusability little more as React features
 
 ## What are expected further
 

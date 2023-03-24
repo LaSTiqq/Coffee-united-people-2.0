@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
+import AuthButton from "../authButton/AuthButton";
 
 const Register = ({ buttonLogin }) => {
   const navigate = useNavigate();
@@ -63,18 +64,11 @@ const Register = ({ buttonLogin }) => {
               name="password"
               required
             />
-            <button
-              type="submit"
-              className="btn btn-warning d-block mx-auto fw-bold my-2"
-            >
-              REGISTER
-            </button>
+            <AuthButton text="REGISTER" className="my-2" />
           </form>
           <p className="text-center text-dark fw-bold">
             Already have an account?&nbsp;
-            <Link to={`/${buttonLogin}`} className="link-primary fw-bold">
-              Sign in
-            </Link>
+            <Link to={`/${buttonLogin}`}>Sign in</Link>
           </p>
         </div>
       </div>

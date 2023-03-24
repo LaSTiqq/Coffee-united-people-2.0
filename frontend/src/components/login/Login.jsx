@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import { login } from "~/store/authSlice";
+import AuthButton from "../authButton/AuthButton";
 
 const Login = ({ buttonRegister }) => {
   const navigate = useNavigate();
@@ -68,18 +69,11 @@ const Login = ({ buttonRegister }) => {
               name="password"
               required
             />
-            <button
-              className="btn btn-warning d-block mx-auto fw-bold my-2"
-              type="submit"
-            >
-              SIGN IN
-            </button>
+            <AuthButton text="SIGN IN" className="my-2" />
           </form>
           <p className="text-center text-dark fw-bold">
             Don't have an account?&nbsp;
-            <Link to={`/${buttonRegister}`} className="link-primary fw-bold">
-              Register
-            </Link>
+            <Link to={`/${buttonRegister}`}>Register</Link>
           </p>
         </div>
       </div>
