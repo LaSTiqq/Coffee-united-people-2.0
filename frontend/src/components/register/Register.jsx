@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
-import AuthButton from "../authButton/AuthButton";
+import AuthForm from "../authForm/authForm";
 
 const Register = ({ buttonLogin }) => {
   const navigate = useNavigate();
@@ -12,13 +12,13 @@ const Register = ({ buttonLogin }) => {
     password: "",
   });
 
-  const handleLoginInput = (e) => {
+  const handleRegisterInput = (e) => {
     setRegisterData((prev) => {
       return { ...prev, [e.target.name]: e.target.value };
     });
   };
 
-  const handleSubmit = async (event) => {
+  const handleRegisterSubmit = async (event) => {
     event.preventDefault();
     try {
       const response = await axios.post(
@@ -47,25 +47,11 @@ const Register = ({ buttonLogin }) => {
           <i className="fa-solid fa-address-card fa-3x d-flex justify-content-center mt-3"></i>
           <h2 className="text-center fw-bold">Register</h2>
           <Toaster />
-          <form onSubmit={handleSubmit}>
-            <input
-              className="form-control my-2"
-              onChange={handleLoginInput}
-              placeholder="Username"
-              type="text"
-              name="login"
-              required
-            />
-            <input
-              className="form-control mb-2"
-              onChange={handleLoginInput}
-              placeholder="Password"
-              type="password"
-              name="password"
-              required
-            />
-            <AuthButton text="REGISTER" className="my-2" />
-          </form>
+          <AuthForm
+            handleInput={handleRegisterInput}
+            handleSubmit={handleRegisterSubmit}
+            buttonText="REGISTER"
+          />
           <p className="text-center text-dark fw-bold">
             Already have an account?&nbsp;
             <Link to={`/${buttonLogin}`}>Sign in</Link>

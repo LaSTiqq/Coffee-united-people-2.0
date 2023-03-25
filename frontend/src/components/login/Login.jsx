@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import { login } from "~/store/authSlice";
-import AuthButton from "../authButton/AuthButton";
+import AuthForm from "../authForm/authForm";
 
 const Login = ({ buttonRegister }) => {
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ const Login = ({ buttonRegister }) => {
     });
   };
 
-  const handleSubmit = async (event) => {
+  const handleLoginSubmit = async (event) => {
     event.preventDefault();
     try {
       const response = await axios.post(
@@ -52,25 +52,11 @@ const Login = ({ buttonRegister }) => {
           <i className="fa-solid fa-key fa-3x d-flex justify-content-center mt-3"></i>
           <h2 className="text-center fw-bold">Sign in</h2>
           <Toaster />
-          <form onSubmit={handleSubmit}>
-            <input
-              className="form-control my-2"
-              onChange={handleLoginInput}
-              placeholder="Username"
-              type="text"
-              name="login"
-              required
-            />
-            <input
-              className="form-control mb-2"
-              onChange={handleLoginInput}
-              placeholder="Password"
-              type="password"
-              name="password"
-              required
-            />
-            <AuthButton text="SIGN IN" className="my-2" />
-          </form>
+          <AuthForm
+            handleInput={handleLoginInput}
+            handleSubmit={handleLoginSubmit}
+            buttonText="LOGIN"
+          />
           <p className="text-center text-dark fw-bold">
             Don't have an account?&nbsp;
             <Link to={`/${buttonRegister}`}>Register</Link>

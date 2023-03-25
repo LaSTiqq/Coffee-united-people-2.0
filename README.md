@@ -26,6 +26,7 @@
 - Added jsconfig.json and modified vite.config.js to resolve relative import paths
 - Implemented [react-hot-toast](https://react-hot-toast.com/) package instead of boring Bootstrap alerts
 - Added AuthButton component to use props and reusability little more as React features
+- Continuation of reusability feature. Created AuthForm component both for login and register components
 
 ## What are expected further
 
