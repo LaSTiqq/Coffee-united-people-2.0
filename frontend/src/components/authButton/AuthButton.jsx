@@ -1,9 +1,6 @@
-const AuthButton = ({ text, className }) => {
+const AuthButton = ({ text }) => {
   return (
-    <button
-      className={`btn btn-warning d-block mx-auto fw-bold ${className}`}
-      type="submit"
-    >
+    <button className="btn btn-warning d-block mx-auto fw-bold" type="submit">
       {text}
     </button>
   );

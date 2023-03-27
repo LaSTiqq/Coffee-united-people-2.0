@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import AuthButton from "../authButton/AuthButton";
 import "./home.css";
 
 const Home = ({ buttonRegister, buttonLogin }) => {
@@ -11,7 +10,9 @@ const Home = ({ buttonRegister, buttonLogin }) => {
           <h2>For those who are addicted or just love coffee</h2>
           <h4>Search for friends, chat, post memes and more</h4>
           <Link to={`/${buttonRegister}`}>
-            <AuthButton text="Register" className={"my-3"} />
+            <button className="btn btn-warning fw-bold d-block mx-auto my-3">
+              Register
+            </button>
           </Link>
           <p className="text-white">
             Already have an account?&nbsp;

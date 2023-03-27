@@ -1,10 +1,10 @@
 import cookieParser from "cookie-parser";
 import { createServer } from "http";
-import { Server } from "socket.io";
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import connectionToDb from "./utils/connectionToDb.js";
+import setupSocket from "./utils/socket.js";
 import protectedRoute from "./routes/protectedRoute.js";
 import registerRoute from "./routes/registerRoute.js";
 import authRoute from "./routes/authRoute.js";
@@ -23,23 +23,6 @@ app.use("/p/*", protectedRoute);
 
 const server = createServer(app);
 
-const io = new Server(server, {
-  path: "/p/chat",
-  cors: {
-    origin: "http://localhost:3000",
-    methods: ["GET", "POST"],
-  },
-});
-
-const messages = [];
-
-io.on("connection", (socket) => {
-  socket.emit("receivedMessage", messages);
-  socket.on("sendMessage", ({ message, name }) => {
-    messages.push({ message, name });
-    io.emit("receivedMessage", messages);
-  });
-  socket.on("disconnect", () => {});
-});
+setupSocket(server);
 
 server.listen(3001, () => connectionToDb());
