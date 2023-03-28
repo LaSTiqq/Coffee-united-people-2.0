@@ -16,11 +16,14 @@ export const loginUser = async (req, res) => {
     }
 
     const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY);
-    res.cookie("token", token, {
-      maxAge: 86400 * 1000,
-      sameSite: "strict",
-    });
-    return res.status(200).send("Login succeed");
+
+    return res
+      .cookie("token", token, {
+        httpOnly: true,
+        maxAge: 86400 * 1000,
+      })
+      .status(200)
+      .send("Login succeed");
   } catch (error) {
     res.status(500).send(error);
   }
