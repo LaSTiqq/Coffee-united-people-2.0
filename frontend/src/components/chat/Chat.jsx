@@ -1,19 +1,18 @@
 import { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { io } from "socket.io-client";
 import "./chat.css";
 
 const Chat = () => {
-  const navigate = useNavigate();
-
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-  const username = useSelector((state) => state.auth.username);
-
   const messagesEndRef = useRef(null);
-
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState("");
+
+  const username = useSelector((state) => state.auth.username);
+
+  useEffect(() => {
+    messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
 
   useEffect(() => {
     const socket = io("http://localhost:3001", {
@@ -26,16 +25,6 @@ const Chat = () => {
       socket.disconnect();
     };
   }, []);
-
-  useEffect(() => {
-    messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
-
-  useEffect(() => {
-    if (!isLoggedIn) {
-      navigate("/login");
-    }
-  }, [isLoggedIn, navigate]);
 
   const handleSubmit = (event) => {
     event.preventDefault();

@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import Cookies from "js-cookie";
 
 const initialState = {
   isLoggedIn: localStorage.getItem("isLoggedIn") === "true",
@@ -18,11 +19,12 @@ export const authSlice = createSlice({
     logout: (state) => {
       state.isLoggedIn = false;
       state.username = "";
-      localStorage.setItem("isLoggedIn", "false");
+      localStorage.removeItem("isLoggedIn");
       localStorage.removeItem("username");
+      Cookies.remove("token");
     },
   },
 });
 
-export const { login, logout, checkLoggedInStatus } = authSlice.actions;
+export const { login, logout } = authSlice.actions;
 export default authSlice.reducer;

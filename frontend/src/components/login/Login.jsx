@@ -31,8 +31,8 @@ const Login = ({ buttonRegister }) => {
       );
       if (response) {
         toast.success("Login succeed! Redirecting...");
-        dispatch(login({ username: loginData.login }));
         setTimeout(() => {
+          dispatch(login({ username: loginData.login }));
           navigate("/p/chat");
         }, 2000);
       }

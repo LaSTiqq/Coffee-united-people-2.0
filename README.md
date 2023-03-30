@@ -25,9 +25,9 @@
 - Implemented [Redux](https://react-redux.js.org/) instead of Context Hook to prevent accesing protected pages, stay logged in if page reloads
 - Added jsconfig.json and modified vite.config.js to resolve relative import paths
 - Implemented [react-hot-toast](https://react-hot-toast.com/) package instead of boring Bootstrap alerts
-- Added AuthButton component to use props and reusability little more as React features
-- Continuation of reusability feature. Created AuthForm component both for login and register components
-- Added one more utility at server-side which moves Socket.io code in different file
+- Separated multiple old app parts to independent components
+- Cookies and localStorage is now cleared after logging out
+- From now without token value unauthorized user can not access protected pages. ProtectedRoute component created
 
 ## What are expected further
 
@@ -60,6 +60,7 @@
   - react-router-dom
   - react-hot-toast
   - socket.io-client
+  - js-cookie
   - axios
   - redux
   - react-redux

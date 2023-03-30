@@ -19,7 +19,7 @@ function AuthForm({ handleInput, handleSubmit, buttonText }) {
         name="password"
         required
       />
-      <AuthButton text={buttonText} className="my-2" />
+      <AuthButton text={buttonText} />
     </form>
   );
 }

@@ -1,6 +1,9 @@
 const AuthButton = ({ text }) => {
   return (
-    <button className="btn btn-warning d-block mx-auto fw-bold" type="submit">
+    <button
+      className="btn btn-warning d-block mx-auto fw-bold my-2"
+      type="submit"
+    >
       {text}
     </button>
   );
