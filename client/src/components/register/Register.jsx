@@ -8,7 +8,7 @@ const Register = ({ buttonLogin }) => {
   const navigate = useNavigate();
 
   const [registerData, setRegisterData] = useState({
-    login: "",
+    email: "",
     password: "",
   });
 
@@ -33,7 +33,7 @@ const Register = ({ buttonLogin }) => {
       }
     } catch (error) {
       if (error.response.status === 400) {
-        toast.error("Username already taken, try again");
+        toast.error("Email already taken, try again");
       } else {
         toast.error("An error occurred, try again");
       }

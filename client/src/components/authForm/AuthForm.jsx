@@ -1,14 +1,14 @@
 import AuthButton from "../authButton/AuthButton";
 
-function AuthForm({ handleInput, handleSubmit, buttonText }) {
+const AuthForm = ({ handleInput, handleSubmit, buttonText }) => {
   return (
     <form onSubmit={handleSubmit}>
       <input
         className="form-control my-2"
         onChange={handleInput}
-        placeholder="Username"
-        type="text"
-        name="login"
+        placeholder="Email"
+        type="email"
+        name="email"
         required
       />
       <input
@@ -22,6 +22,6 @@ function AuthForm({ handleInput, handleSubmit, buttonText }) {
       <AuthButton text={buttonText} />
     </form>
   );
-}
+};
 
 export default AuthForm;

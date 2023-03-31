@@ -11,7 +11,8 @@ const Login = ({ buttonRegister }) => {
   const dispatch = useDispatch();
 
   const [loginData, setLoginData] = useState({
-    login: "",
+    email: "",
+    username: "Guest",
     password: "",
   });
 
@@ -32,13 +33,13 @@ const Login = ({ buttonRegister }) => {
       if (response) {
         toast.success("Login succeed! Redirecting...");
         setTimeout(() => {
-          dispatch(login({ username: loginData.login }));
+          dispatch(login({ username: loginData.email }));
           navigate("/p/chat");
         }, 2000);
       }
     } catch (error) {
       if (error.response.status === 404) {
-        toast.error("Wrong login or password, try again");
+        toast.error("Wrong email or password, try again");
       } else {
         toast.error("An error occurred, try again");
       }

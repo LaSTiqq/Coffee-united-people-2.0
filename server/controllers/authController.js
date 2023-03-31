@@ -4,15 +4,15 @@ import userModel from "../models/userModel.js";
 
 export const loginUser = async (req, res) => {
   try {
-    const { login, password } = req.body;
-    const user = await userModel.findOne({ login });
+    const { email, password } = req.body;
+    const user = await userModel.findOne({ email });
     if (!user) {
-      return res.status(404).send("Wrong login or password");
+      return res.status(404).send("Wrong email or password");
     }
 
     const validPassword = await bcrypt.compare(password, user.password);
     if (!validPassword) {
-      return res.status(404).send("Wrong login or password");
+      return res.status(404).send("Wrong email or password");
     }
 
     const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY);
