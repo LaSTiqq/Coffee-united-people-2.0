@@ -1,5 +1,3 @@
-import AuthButton from "../authButton/AuthButton";
-
 const AuthForm = ({ handleInput, handleSubmit, buttonText }) => {
   return (
     <form onSubmit={handleSubmit}>
@@ -19,7 +17,12 @@ const AuthForm = ({ handleInput, handleSubmit, buttonText }) => {
         name="password"
         required
       />
-      <AuthButton text={buttonText} />
+      <button
+        className="btn btn-warning d-block mx-auto fw-bold my-2"
+        type="submit"
+      >
+        {buttonText}
+      </button>
     </form>
   );
 };

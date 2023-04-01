@@ -37,8 +37,8 @@ const Chat = () => {
 
   return (
     <div className="container-fluid bg-color chat">
-      <div className="container rounded p-4">
-        <h1 className="text-center mb-2">Chat</h1>
+      <div className="container p-4">
+        <h1 className="h1 text-center mb-2">Chat</h1>
         <ul>
           {messages.map((message, index) => (
             <li

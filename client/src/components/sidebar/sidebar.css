@@ -1,0 +1,32 @@
+.sidebar {
+  background-color: #7d451b;
+  height: 200px;
+  width: 180px;
+  position: absolute;
+  border-radius: 4px;
+  margin-top: 100px;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.rectangle {
+  width: 150px;
+  height: 30px;
+  background-color: #a2622a;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  margin-top: 10px;
+}
+
+.rectangle:hover {
+  background-color: #a98467;
+}

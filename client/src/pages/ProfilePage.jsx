@@ -1,15 +1,15 @@
 import Header from "~/components/header/Header";
 import Sidebar from "~/components/sidebar/Sidebar";
-import Chat from "~/components/chat/Chat";
+import Profile from "~/components/profile/Profile";
 
-const ChatPage = () => {
+const ProfilePage = () => {
   return (
     <>
       <Header buttonHome={"p/profile"} />
       <Sidebar buttonProfile={"p/profile"} buttonChat={"p/chat"} />
-      <Chat />
+      <Profile />
     </>
   );
 };
 
-export default ChatPage;
+export default ProfilePage;

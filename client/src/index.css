@@ -12,3 +12,15 @@ a {
   background-color: rgba(221, 184, 146, 0.7);
   border-radius: 8px;
 }
+
+.bg-color {
+  background-color: #ede0d4;
+  padding-top: 80px;
+}
+
+.h1 {
+  font-size: 74px;
+  color: #fff9e6;
+  text-shadow: 1px 1px #6d4c41, 2px 2px #6d4c41, 3px 3px #6d4c41,
+    4px 4px #6d4c41, 5px 5px #6d4c41;
+}
