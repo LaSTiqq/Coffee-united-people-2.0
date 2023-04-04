@@ -8,7 +8,7 @@ const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState("");
 
-  const username = useSelector((state) => state.auth.username);
+  const email = useSelector((state) => state.auth.email);
 
   useEffect(() => {
     messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
@@ -31,7 +31,7 @@ const Chat = () => {
     const socket = io("http://localhost:3001", {
       path: "/p/chat",
     });
-    socket.emit("sendMessage", { message, name: username });
+    socket.emit("sendMessage", { message, name: email });
     setMessage("");
   };
 
@@ -44,7 +44,7 @@ const Chat = () => {
             <li
               key={index}
               className={`rounded ${
-                message.name === username ? "sent" : "received"
+                message.name === email ? "sent" : "received"
               }`}
             >
               <div>

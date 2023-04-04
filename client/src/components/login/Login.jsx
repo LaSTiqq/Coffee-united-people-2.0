@@ -12,7 +12,6 @@ const Login = ({ buttonRegister }) => {
 
   const [loginData, setLoginData] = useState({
     email: "",
-    username: "Guest",
     password: "",
   });
 
@@ -33,7 +32,7 @@ const Login = ({ buttonRegister }) => {
       if (response) {
         toast.success("Login succeed! Redirecting...");
         setTimeout(() => {
-          dispatch(login({ username: loginData.email }));
+          dispatch(login({ email: loginData.email }));
           navigate("/p/profile");
         }, 2000);
       }

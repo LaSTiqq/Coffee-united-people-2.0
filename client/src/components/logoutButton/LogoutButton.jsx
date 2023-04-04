@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import { logout } from "~/store/authSlice";
+import "./logoutButton.css";
 
 const LogoutButton = () => {
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ const LogoutButton = () => {
   return (
     <>
       <Toaster />
-      <a className="link-warning" onClick={handleLogout}>
+      <a className="link-warning logout" onClick={handleLogout}>
         <i className="fa-solid fa-arrow-right-from-bracket"></i>
         &nbsp; Log out
       </a>

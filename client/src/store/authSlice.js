@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 
 const initialState = {
   isLoggedIn: localStorage.getItem("isLoggedIn") === "true",
-  username: localStorage.getItem("username") || "",
+  email: localStorage.getItem("email") || "",
 };
 
 export const authSlice = createSlice({
@@ -12,15 +12,15 @@ export const authSlice = createSlice({
   reducers: {
     login: (state, action) => {
       state.isLoggedIn = true;
-      state.username = action.payload.username;
+      state.email = action.payload.email;
       localStorage.setItem("isLoggedIn", "true");
-      localStorage.setItem("username", action.payload.username);
+      localStorage.setItem("email", action.payload.email);
     },
     logout: (state) => {
       state.isLoggedIn = false;
-      state.username = "";
+      state.email = "";
       localStorage.removeItem("isLoggedIn");
-      localStorage.removeItem("username");
+      localStorage.removeItem("email");
       Cookies.remove("token");
     },
   },

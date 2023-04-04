@@ -1,5 +1,5 @@
 .chat {
-  padding-left: 450px;
+  padding: 0 285px 0 450px;
 }
 
 .chat ul {
@@ -8,7 +8,6 @@
   flex-direction: column;
   list-style: none;
   overflow-y: scroll;
-  padding: 0;
 }
 
 .chat li {

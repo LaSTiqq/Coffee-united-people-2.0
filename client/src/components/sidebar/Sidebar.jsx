@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import LogoutButton from "../logoutButton/LogoutButton";
 import "./sidebar.css";
 
 const Sidebar = ({ buttonProfile, buttonChat }) => {
@@ -7,7 +8,7 @@ const Sidebar = ({ buttonProfile, buttonChat }) => {
       <div className="row">
         <div className="col-1">
           <div className="sidebar">
-            <ul className="ps-3">
+            <ul className="list-unstyled px-3">
               <li>
                 <Link to={`/${buttonProfile}`} className="rectangle fw-bold">
                   Profile
@@ -18,6 +19,8 @@ const Sidebar = ({ buttonProfile, buttonChat }) => {
                   Chat
                 </Link>
               </li>
+              <hr />
+              <LogoutButton />
             </ul>
           </div>
         </div>
