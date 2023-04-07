@@ -25,6 +25,7 @@
 - Cookies and localStorage is now cleared after logging out
 - From now without token value unauthorized user can't access protected pages
 - Username/login field for registering/signing in is changed to email field
+- Added pretty loader while user is registering/signing in. Useful if internet connection is slow
 
 ## What are expected further
 
@@ -62,6 +63,7 @@
   - redux
   - react-redux
   - @reduxjs/toolkit
+  - @uiball/loaders
 
 ## Prerequsites
 

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
+import { Ring } from "@uiball/loaders";
 import axios from "axios";
 import AuthForm from "../authForm/authForm";
 
@@ -11,6 +12,7 @@ const Register = ({ buttonLogin }) => {
     email: "",
     password: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleRegisterInput = (e) => {
     setRegisterData((prev) => {
@@ -20,9 +22,10 @@ const Register = ({ buttonLogin }) => {
 
   const handleRegisterSubmit = async (event) => {
     event.preventDefault();
+    setIsLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:3001/api/register",
+        "http://localhost:3001/api/auth/register",
         registerData
       );
       if (response) {
@@ -37,6 +40,8 @@ const Register = ({ buttonLogin }) => {
       } else {
         toast.error("An error occurred, try again");
       }
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -52,6 +57,11 @@ const Register = ({ buttonLogin }) => {
             handleSubmit={handleRegisterSubmit}
             buttonText="REGISTER"
           />
+          {isLoading ? (
+            <div className="text-center">
+              <Ring />
+            </div>
+          ) : null}
           <p className="text-center text-dark fw-bold">
             Already have an account?&nbsp;
             <Link to={`/${buttonLogin}`}>Sign in</Link>
