@@ -1,22 +1,17 @@
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import axios from "axios";
 import { logout } from "~/store/authSlice";
 import "./logoutButton.css";
 
 const LogoutButton = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const handleLogout = async () => {
     try {
       await axios.post("http://localhost:3001/api/auth/logout");
-      toast.success("Logout succeed! Redirecting...");
-      setTimeout(() => {
-        dispatch(logout());
-        navigate("/");
-      }, 2000);
+      toast.success("Loggged out");
+      dispatch(logout());
     } catch (error) {
       toast.error("An error occurred, try again");
     }
@@ -24,7 +19,6 @@ const LogoutButton = () => {
 
   return (
     <>
-      <Toaster />
       <a className="link-warning logout" onClick={handleLogout}>
         <i className="fa-solid fa-arrow-right-from-bracket"></i>
         &nbsp; Log out

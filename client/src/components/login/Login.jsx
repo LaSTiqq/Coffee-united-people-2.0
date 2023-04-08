@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { Ring } from "@uiball/loaders";
 import axios from "axios";
 import { login } from "~/store/authSlice";
@@ -33,11 +33,9 @@ const Login = ({ buttonRegister }) => {
         { withCredentials: true }
       );
       if (response) {
-        toast.success("Login succeed! Redirecting...");
-        setTimeout(() => {
-          dispatch(login({ email: loginData.email }));
-          navigate("/p/profile");
-        }, 2000);
+        toast.success("Signed in");
+        dispatch(login({ email: loginData.email }));
+        navigate("/p/profile");
       }
     } catch (error) {
       if (error.response.status === 404) {
@@ -56,7 +54,6 @@ const Login = ({ buttonRegister }) => {
         <div className="col-md-4 square">
           <i className="fa-solid fa-key fa-3x d-flex justify-content-center mt-3"></i>
           <h2 className="text-center fw-bold">Sign in</h2>
-          <Toaster />
           <AuthForm
             handleInput={handleLoginInput}
             handleSubmit={handleLoginSubmit}

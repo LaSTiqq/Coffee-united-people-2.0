@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { Ring } from "@uiball/loaders";
 import axios from "axios";
 import AuthForm from "../authForm/authForm";
@@ -29,13 +29,11 @@ const Register = ({ buttonLogin }) => {
         registerData
       );
       if (response) {
-        toast.success("Register succeed! Redirecting...");
-        setTimeout(() => {
-          navigate("/login");
-        }, 2000);
+        toast.success("Registered. Sign in now");
+        navigate("/login");
       }
     } catch (error) {
-      if (error.response.status === 400) {
+      if (error.response.data.name === "ValidationError") {
         toast.error("Email already taken, try again");
       } else {
         toast.error("An error occurred, try again");
@@ -51,7 +49,6 @@ const Register = ({ buttonLogin }) => {
         <div className="col-md-4 square">
           <i className="fa-solid fa-address-card fa-3x d-flex justify-content-center mt-3"></i>
           <h2 className="text-center fw-bold">Register</h2>
-          <Toaster />
           <AuthForm
             handleInput={handleRegisterInput}
             handleSubmit={handleRegisterSubmit}
