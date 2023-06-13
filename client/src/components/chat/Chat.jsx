@@ -37,39 +37,45 @@ const Chat = () => {
 
   return (
     <div className="container-fluid bg-color chat">
-      <div className="container p-4">
-        <h1 className="h1 text-center mb-2">Chat</h1>
-        <ul>
-          {messages.map((message, index) => (
-            <li
-              key={index}
-              className={`rounded ${
-                message.name === email ? "sent" : "received"
-              }`}
-            >
-              <div>
-                <span className="fw-bold">{message.name}: </span>
-                <span className="d-inline-block px-3 py-2 rounded text-break">
-                  {message.message}
-                </span>
-              </div>
-            </li>
-          ))}
-          <li ref={messagesEndRef}></li>
-        </ul>
-        <form onSubmit={handleSubmit} className="d-flex align-items-center">
-          <input
-            placeholder="Enter your message"
-            type="text"
-            className="form-control me-2"
-            value={message}
-            onChange={(event) => setMessage(event.target.value)}
-            required
-          />
-          <button type="submit" className="btn btn-warning">
-            Send&nbsp;<i className="fa-regular fa-paper-plane d-inline"></i>
-          </button>
-        </form>
+      <div className="container justify-content-center p-4">
+        <div className="row">
+          <div className="col-10">
+            <h1 className="h1 text-center mb-2">Chat</h1>
+          </div>
+          <div className="col-11 d-flex flex-column align-items-end">
+            <ul>
+              {messages.map((message, index) => (
+                <li
+                  key={index}
+                  className={`rounded ${
+                    message.name === email ? "sent" : "received"
+                  }`}
+                >
+                  <div>
+                    <span className="fw-bold">{message.name}: </span>
+                    <span className="d-inline-block px-3 py-2 rounded text-break">
+                      {message.message}
+                    </span>
+                  </div>
+                </li>
+              ))}
+              <li ref={messagesEndRef}></li>
+            </ul>
+            <form onSubmit={handleSubmit} className="d-flex w-100">
+              <input
+                placeholder="Enter your message"
+                type="text"
+                className="form-control me-2"
+                value={message}
+                onChange={(event) => setMessage(event.target.value)}
+                required
+              />
+              <button type="submit" className="btn btn-warning">
+                Send&nbsp;<i className="fa-regular fa-paper-plane d-inline"></i>
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   );

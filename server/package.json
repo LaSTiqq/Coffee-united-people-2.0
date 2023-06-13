@@ -1,5 +1,5 @@
 {
-  "name": "backend",
+  "name": "server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,12 +13,13 @@
     "bcrypt": "^5.1.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
-    "dotenv": "^16.0.3",
+    "dotenv": "^16.1.4",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
-    "mongoose": "^6.9.0",
+    "mongodb": "^5.6.0",
+    "mongoose": "^6.11.2",
     "mongoose-unique-validator": "^3.1.0",
-    "nodemon": "^2.0.20",
-    "socket.io": "^4.6.0"
+    "nodemon": "^2.0.22",
+    "socket.io": "^4.6.2"
   }
 }
