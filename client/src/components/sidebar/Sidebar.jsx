@@ -5,25 +5,29 @@ import "./sidebar.css";
 const Sidebar = ({ buttonProfile, buttonChat }) => {
   return (
     <div className="container">
-      <div className="row">
-        <div className="col-1">
-          <div className="sidebar">
-            <ul className="list-unstyled px-3">
-              <li>
-                <Link to={`/${buttonProfile}`} className="rectangle fw-bold">
-                  Profile
-                </Link>
-              </li>
-              <li>
-                <Link to={`/${buttonChat}`} className="rectangle fw-bold">
-                  Chat
-                </Link>
-              </li>
-              <hr />
-              <LogoutButton />
-            </ul>
-          </div>
-        </div>
+      <div className="sidebar">
+        <ul className="list-unstyled px-3">
+          <Link
+            to={`/${buttonProfile}`}
+            className="rectangle text-white d-flex align-items-center ps-2"
+          >
+            <li className="fw-bold">
+              <i className="fa-regular fa-user"></i>
+              &nbsp;&nbsp;Profile
+            </li>
+          </Link>
+          <Link
+            to={`/${buttonChat}`}
+            className="rectangle text-white d-flex align-items-center ps-2"
+          >
+            <li className="fw-bold">
+              <i className="fa-regular fa-comment"></i>
+              &nbsp;&nbsp;Chat
+            </li>
+          </Link>
+          <hr />
+          <LogoutButton />
+        </ul>
       </div>
     </div>
   );

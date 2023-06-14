@@ -5,19 +5,11 @@
   margin-top: 100px;
 }
 
-.sidebar ul li a {
-  color: #fff;
-  text-decoration: none;
-}
-
 .rectangle {
   width: 150px;
   height: 30px;
   background-color: #a2622a;
   border-radius: 4px;
-  display: flex;
-  align-items: center;
-  padding-left: 10px;
   margin-top: 10px;
 }
 

@@ -2,6 +2,7 @@
 
 body {
   font-family: "Raleway", sans-serif;
+  background-color: #ede0d4;
 }
 
 a {
@@ -11,11 +12,6 @@ a {
 .square {
   background-color: rgba(221, 184, 146, 0.7);
   border-radius: 8px;
-}
-
-.bg-color {
-  background-color: #ede0d4;
-  padding-top: 80px;
 }
 
 .h1 {
