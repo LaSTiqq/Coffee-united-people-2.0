@@ -23,8 +23,17 @@ export const authSlice = createSlice({
       localStorage.removeItem("email");
       Cookies.remove("token");
     },
+    checkToken: (state) => {
+      const token = Cookies.get("token");
+      if (!token) {
+        state.isLoggedIn = false;
+        state.email = "";
+        localStorage.removeItem("isLoggedIn");
+        localStorage.removeItem("email");
+      }
+    },
   },
 });
 
-export const { login, logout } = authSlice.actions;
+export const { login, logout, checkToken } = authSlice.actions;
 export default authSlice.reducer;
