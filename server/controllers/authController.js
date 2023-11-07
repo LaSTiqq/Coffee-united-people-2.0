@@ -27,7 +27,7 @@ export const loginUser = async (req, res) => {
       return res.status(404).send("Wrong email or password");
     }
 
-    const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY);
+    const token = jwt.sign({ user: user._id }, process.env.SECRET_KEY);
 
     return res
       .cookie("token", token, {

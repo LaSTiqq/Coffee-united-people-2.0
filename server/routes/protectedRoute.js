@@ -4,6 +4,6 @@ import verifyToken from "../middlewares/verifyToken.js";
 
 const router = express.Router();
 
-router.get("/", verifyToken, protectedPages);
+router.get("/*", verifyToken, protectedPages);
 
 export default router;

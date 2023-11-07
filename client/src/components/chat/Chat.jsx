@@ -1,12 +1,25 @@
 import { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { io } from "socket.io-client";
+import axios from 'axios';
+import toast from "react-hot-toast";
 import "./chat.css";
 
 const Chat = () => {
   const messagesEndRef = useRef(null);
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    const verifyToken = async () => {
+      try {
+        await axios.get('http://localhost:3001/p/chat', { withCredentials: true });
+      } catch (error) {
+        toast.error('Token is missing');
+      }
+    };
+    verifyToken();
+  }, []);
 
   const email = useSelector((state) => state.auth.email);
 
