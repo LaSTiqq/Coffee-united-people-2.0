@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
-import { checkToken } from "~/store/authSlice";
+import { logout, checkToken } from "~/store/authSlice";
 
 const ProtectedRoute = ({ children }) => {
   const navigate = useNavigate();
@@ -12,11 +12,13 @@ const ProtectedRoute = ({ children }) => {
 
   useEffect(() => {
     dispatch(checkToken());
-    if (!isLoggedIn) {
+    if (!isLoggedIn || !token) {
+      dispatch(logout());
       navigate("/login");
     }
-  }, [token, isLoggedIn, dispatch]);
+  }, [dispatch, navigate, isLoggedIn, token]);
 
+  
   return children;
 };
 

@@ -4,6 +4,7 @@ import Cookies from "js-cookie";
 const initialState = {
   isLoggedIn: localStorage.getItem("isLoggedIn") === "true",
   email: localStorage.getItem("email") || "",
+  token: Cookies.get("token") || null,
 };
 
 export const authSlice = createSlice({
@@ -15,6 +16,7 @@ export const authSlice = createSlice({
       state.email = action.payload.email;
       localStorage.setItem("isLoggedIn", "true");
       localStorage.setItem("email", action.payload.email);
+      state.token = action.payload.token;
     },
     logout: (state) => {
       state.isLoggedIn = false;
@@ -22,6 +24,7 @@ export const authSlice = createSlice({
       localStorage.removeItem("isLoggedIn");
       localStorage.removeItem("email");
       Cookies.remove("token");
+      state.token = null;
     },
     checkToken: (state) => {
       const token = Cookies.get("token");
@@ -30,6 +33,7 @@ export const authSlice = createSlice({
         state.email = "";
         localStorage.removeItem("isLoggedIn");
         localStorage.removeItem("email");
+        state.token = null;
       }
     },
   },

@@ -26,6 +26,7 @@
 - Username/login field for registering/signing in is changed to email field
 - Added pretty loader while user is registering/signing in. Useful if internet connection is slow
 - Fixed very old bug according to differently working token verification on the server-side and on the client-side
+  - The author decided that challenging security measures here aren't mandatory, so the user will be kicked only if token value being completely deleted - not modified
 - Added dynamic logic if protected pages would be more than expected
 
 ## What are expected further

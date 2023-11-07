@@ -4,18 +4,6 @@ import toast from "react-hot-toast";
 import "./profile.css";
 
 const Profile = () => {
-
-  useEffect(() => {
-    const verifyToken = async () => {
-      try {
-        await axios.get('http://localhost:3001/p/profile', { withCredentials: true });
-      } catch (error) {
-        toast.error('Token is missing');
-      }
-    };
-    verifyToken();
-  }, []);
-
   return (
     <div className="container profile">
       <div className="row">
