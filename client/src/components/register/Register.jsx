@@ -20,20 +20,20 @@ const Register = ({ buttonLogin }) => {
     });
   };
 
-  const handleRegisterSubmit = async (event) => {
-    event.preventDefault();
+  const handleRegister = async (e) => {
+    e.preventDefault();
     setIsLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:3001/api/auth/register",
+        "http://localhost:3001/api/register",
         registerData
       );
       if (response) {
-        toast.success("Registered. Sign in now");
+        toast.success("Sign in now");
         navigate("/login");
       }
     } catch (error) {
-      if (error.response.data.name === "ValidationError") {
+      if (error.response && error.response.status === 409) {
         toast.error("Email already taken, try again");
       } else {
         toast.error("An error occurred, try again");
@@ -51,7 +51,7 @@ const Register = ({ buttonLogin }) => {
           <h2 className="text-center fw-bold">Register</h2>
           <AuthForm
             handleInput={handleRegisterInput}
-            handleSubmit={handleRegisterSubmit}
+            handleSubmit={handleRegister}
             buttonText="REGISTER"
           />
           {isLoading ? (

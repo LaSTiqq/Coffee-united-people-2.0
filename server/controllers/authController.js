@@ -8,7 +8,7 @@ export const registerUser = async (req, res) => {
     const hash = await bcrypt.hash(password, 10);
     const newUser = new userModel({ email, password: hash });
     await newUser.save();
-    res.status(201).send("Register succeed");
+    res.status(201).send("Registered");
   } catch (error) {
     res.status(500).send(error);
   }
@@ -34,7 +34,7 @@ export const loginUser = async (req, res) => {
         maxAge: 86400 * 1000,
       })
       .status(200)
-      .send("Login succeed");
+      .send("Signed in");
   } catch (error) {
     res.status(500).send(error);
   }
@@ -44,5 +44,5 @@ export const logoutUser = (req, res) => {
   return res
     .clearCookie("token", { path: "/", expires: new Date(0) })
     .status(200)
-    .send("Logout succeed");
+    .send("Signed out");
 };

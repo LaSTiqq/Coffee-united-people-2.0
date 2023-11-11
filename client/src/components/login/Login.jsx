@@ -23,14 +23,14 @@ const Login = ({ buttonRegister }) => {
     });
   };
 
-  const handleLoginSubmit = async (event) => {
-    event.preventDefault();
+  const handleLogin = async (e) => {
+    e.preventDefault();
     setIsLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:3001/api/auth/login",
+        "http://localhost:3001/api/login",
         loginData,
-        { withCredentials: true }
+        { withCredentials: true, timeout: 1000 }
       );
       if (response) {
         toast.success("Signed in");
@@ -38,10 +38,16 @@ const Login = ({ buttonRegister }) => {
         navigate("/p/profile");
       }
     } catch (error) {
-      if (error.response.status === 404) {
+      if (axios.isCancel(error)) {
+        toast.error("Request timed out, try again");
+      } else if (error.response && error.response.status === 404) {
         toast.error("Wrong email or password, try again");
-      } else {
+      } else if (error.response) {
         toast.error("An error occurred, try again");
+      } else if (error.request) {
+        toast.error("Network error, try again");
+      } else {
+        toast.error("An unexpected error occurred, try again");
       }
     } finally {
       setIsLoading(false);
@@ -56,7 +62,7 @@ const Login = ({ buttonRegister }) => {
           <h2 className="text-center fw-bold">Sign in</h2>
           <AuthForm
             handleInput={handleLoginInput}
-            handleSubmit={handleLoginSubmit}
+            handleSubmit={handleLogin}
             buttonText="LOGIN"
           />
           {isLoading ? (

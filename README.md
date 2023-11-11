@@ -4,30 +4,25 @@
 
 ## What are done currently
 
-- Reviewed all returning HTTP status codes according to [HTTP Cats](https://http.cat/)
-- Modified all routes and controllers to be more readable on server-side
-- Added additional try-catch returning messages on client-side
 - Added preventing registering with an existing login (username) on server-side
-- Added jsonwebtoken (JWT) with expiration time
-- Added propper CORS configuration to retrieve JWT Token as a cookie from backend to frontend
-- Added token verification while user is on protected pages (currently just two pages)
+- Added propper CORS configuration to retrieve JWT Token as a cookie from server-side to client-side
 - Added client-side part on React.js with [Bootstrap](https://getbootstrap.com/) CDN
 - Added feature to keep user logged in, even if page is being reloaded
 - Added logout route both on server-side and client-side
-- Added all-to-all chat based on [Socket.io](https://socket.io/) without storing messages in database
-- Added welcome message and button to logged in users in navigation bar to get back to the protected page if user suddenly clicked go back button in browser
-- Moved all client-side to [Vite](https://vitejs.dev/) react app, returning back later is possible if some errors appears
-- Implemented [Redux](https://react-redux.js.org/) instead of Context Hook 
+- Added all-to-all chat based on [Socket.io](https://socket.io/)
+  - The author decided that storing messages in a database here is not necessary
+- Added welcome message and button to logged in users in navigation bar to return to the protected page if user suddenly clicked go back button in browser
+- Moved all client-side to [Vite](https://vitejs.dev/) react app
+- Implemented [Redux](https://react-redux.js.org/) instead of Context Hook
+  - Cookies and localStorage is now cleared after logging out
 - Added jsconfig.json and modified vite.config.js to resolve relative import paths
-- Implemented [react-hot-toast](https://react-hot-toast.com/) package instead of boring Bootstrap alerts
-- Separated multiple old app parts to independent components
-- Cookies and localStorage is now cleared after logging out
-- From now without token value unauthorized user can't access protected pages
-- Username/login field for registering/signing in is changed to email field
-- Added pretty loader while user is registering/signing in. Useful if internet connection is slow
+- Added [react-hot-toast](https://react-hot-toast.com/) package instead of boring Bootstrap alerts
+- Added pretty loader while user is registering/signing in
+- Separated multiple old app parts to independent components at the client-side
+- Username field for registering/signing in is changed to email field
 - Fixed very old bug according to differently working token verification on the server-side and on the client-side
-  - The author decided that challenging security measures here aren't mandatory, so the user will be kicked only if token value being completely deleted - not modified
-- Added dynamic logic if protected pages would be more than expected
+  - The author decided that challenging security measures (such as verifying that token was modified) here is not necessary
+- Reviewed all returning HTTP status codes according to [HTTP Cats](https://http.cat/)
 
 ## What are expected further
 
@@ -36,7 +31,6 @@
 - Add accordingly deletion and editing functionalities to an existing users
 - Add verification for password complexity requirements
 - Explore and implement [TypeScript](https://www.typescriptlang.org/) (maybe)
-- Explore and implement [MUI](https://mui.com/) (maybe)
 - and more..
 
 ## Technologies used
@@ -69,7 +63,7 @@
 
 ## Prerequsites
 
-##### In this project are implemented dotenv package so the sensitive information such as `MONGO_URL` for connection to database and `SECRET_KEY` for JWT Token are hidden in environment file and aren't uploaded to this repository. Make sure to provide them if you're going to use this codebase.
+##### In this project are implemented dotenv package so the sensitive information such as `MONGO_URL` for connection to database and `SECRET_KEY` for JWT Token are hidden in environment file and aren't uploaded to this repository. Make sure to provide them (create `.env` file at the server side) if you're going to use this codebase.
 
 ## Inspired by
 

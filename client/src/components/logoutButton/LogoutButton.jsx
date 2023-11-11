@@ -9,11 +9,17 @@ const LogoutButton = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post("http://localhost:3001/api/auth/logout");
-      toast.success("Loggged out");
+      await axios.post("http://localhost:3001/api/logout");
+      toast.success("Signed out");
       dispatch(logout());
     } catch (error) {
-      toast.error("An error occurred, try again");
+      if (error.response && error.response.status === 401) {
+        toast.error("Unauthorized access, log in again");
+      } else if (error.request) {
+        toast.error("Network error, check your internet connection");
+      } else {
+        toast.error("An unexpected error occurred, try again");
+      }
     }
   };
 
