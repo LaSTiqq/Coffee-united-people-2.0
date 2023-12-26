@@ -18,7 +18,6 @@ const ProtectedRoute = ({ children }) => {
     }
   }, [dispatch, navigate, isLoggedIn, token]);
 
-  
   return children;
 };
 

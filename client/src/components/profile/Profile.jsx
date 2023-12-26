@@ -1,6 +1,3 @@
-import { useEffect } from 'react';
-import axios from 'axios';
-import toast from "react-hot-toast";
 import "./profile.css";
 
 const Profile = () => {
