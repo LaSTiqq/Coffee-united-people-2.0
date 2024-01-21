@@ -31,7 +31,7 @@
 3. Create at the 'server' folder `.env` file and fill it with two variables: `MONGO_URL` for connection to cloud database and `SECRET_KEY` for properly working JWT Token. For example:
 
 ```
-MONGO_URL='mongodb+srv://<username>:<password>@<link to a MongoDB cluster>.net/<db_column_name>?retryWrites=true&w=majority'
+MONGO_URL='mongodb+srv://<username>:<password>@cluster0.example.mongodb.net/?retryWrites=true&w=majority'
 SECRET_KEY='<random_symbol_row>'
 ```
 
