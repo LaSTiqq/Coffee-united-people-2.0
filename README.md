@@ -35,7 +35,10 @@ MONGO_URL='mongodb+srv://<username>:<password>@cluster0.example.mongodb.net/?ret
 SECRET_KEY='<random_symbol_row>'
 ```
 
-3. Run the server using command `npm start` in 'server' folder and `npm run dev` in 'client' folder. Use two different terminals at the same time
+**On author's machine server works only with Node.js ver. [19.6.1](https://nodejs.org/dist/v19.6.1/) and below.**
+**There is some issue related to connection to [MongoDB Atlas](https://www.mongodb.com/atlas/database)**
+
+4. Run the server using command `npm start` in 'server' folder and `npm run dev` in 'client' folder. Use two different terminals at the same time
 
 ## Powered by
 
