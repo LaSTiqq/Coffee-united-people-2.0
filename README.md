@@ -35,7 +35,7 @@ MONGO_URL='mongodb+srv://<username>:<password>@cluster0.example.mongodb.net/?ret
 SECRET_KEY='<random_symbol_row>'
 ```
 
-4. Run the server using command `npm start` in 'server' folder and `npm run dev` in 'client' folder. Use two different terminals at the same time
+4. Run the server using command `npm start` in **server** folder and `npm run dev` in **client** folder. Use two different terminals at the same time
 
 ## Powered by
 
