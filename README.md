@@ -27,26 +27,23 @@
 #### To install this repository:
 
 1. Clone the repository to a dedicated folder using command `git clone https://github.com/LaSTiqq/Coffee-united-people-2.0.git`
-2. Navigate terminal that you use to a created folder above, and run both on 'server' and 'client' folders `npm install` or `npm i`
-3. Create at the 'server' folder `.env` file and fill it with two variables: `MONGO_URL` for connection to cloud database and `SECRET_KEY` for properly working JWT Token. For example:
+2. Navigate terminal that you have used to a created folder above, and run both on **server** and **client** folders `npm install` or `npm i`
+3. Create at the **server** folder `.env` file and fill it with two variables: `MONGO_URL` for connection to MongoDB Atlas database and `SECRET_KEY` for properly working JWT Token. For example:
 
 ```
-MONGO_URL='mongodb+srv://<username>:<password>@cluster0.example.mongodb.net/?retryWrites=true&w=majority'
+MONGO_URL='mongodb+srv://<username>:<password>@cluster0.example.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
 SECRET_KEY='<random_symbol_row>'
 ```
-
-**On author's machine server works only with Node.js ver. [19.6.1](https://nodejs.org/dist/v19.6.1/) and below.**
-**There is some issue related to connection to [MongoDB Atlas](https://www.mongodb.com/atlas/database)**
 
 4. Run the server using command `npm start` in 'server' folder and `npm run dev` in 'client' folder. Use two different terminals at the same time
 
 ## Powered by
 
-- [ChatGPT](https://chat.openai.com/chat)
+- [ChatGPT](https://chatgpt.com/)
 - [Vite](https://vitejs.dev/)
 
-## Find and contact me
+## Learn more about me
 
 - [My portfolio website](https://laurisstirna.eu.pythonanywhere.com/)
 
-<sub>I'm currently looking for a job opportunities</sub>
+<sub>I'm currently looking for a remote/hybrid job opportunities</sub>
